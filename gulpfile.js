@@ -9,21 +9,10 @@ var plugins = require('gulp-load-plugins')();
 
 // Temporary solution until gulp 4
 // https://github.com/gulpjs/gulp/issues/355
-var browserSync = require('browser-sync');
 var runSequence = require('run-sequence');
 
 var pkg = require('./package.json');
 var dirs = pkg['h5bp-configs'].directories;
-
-var config = {
-    server: {
-        baseDir: dirs.dist
-    },
-    tunnel: true,
-    host: 'localhost',
-    port: 9000,
-    logPrefix: 'Bitch'
-};
 
 // ---------------------------------------------------------------------
 // | Helper tasks                                                      |
@@ -76,64 +65,46 @@ gulp.task('clean', function (done) {
 });
 
 gulp.task('copy', [
-    'copy:.htaccess',
-    'copy:index.html',
-    'copy:jquery',
-    'copy:license',
-    'copy:main.css',
-    'copy:misc',
-    'copy:normalize'
+    'copy:vendor',
+    'copy:misc'
 ]);
 
-gulp.task('copy:.htaccess', function () {
-    return gulp.src('node_modules/apache-server-configs/dist/.htaccess')
-               .pipe(plugins.replace(/# ErrorDocument/g, 'ErrorDocument'))
-               .pipe(gulp.dest(dirs.dist));
-});
+gulp.task('copy:vendor', function () {
+    gulp.src(['node_modules/jquery/dist/jquery.min.js',
+        'node_modules/angular/angular.min.js',
+        'node_modules/angular-route/angular-route.min.js'
+    ])
+        .pipe(plugins.concat('vendor.min.js'))
+        .pipe(gulp.dest(dirs.dist + '/js'));
 
-gulp.task('copy:index.html', function () {
-    return gulp.src(dirs.src + '/index.html')
-               .pipe(plugins.replace(/{{JQUERY_VERSION}}/g, pkg.devDependencies.jquery))
-               .pipe(gulp.dest(dirs.dist));
-});
+    gulp.src(['node_modules/jquery/dist/jquery.min.map',
+        'node_modules/angular/angular.min.js.map',
+        'node_modules/angular-route/angular-route.min.js.map'
+    ])
+        .pipe(gulp.dest(dirs.dist + '/js'));
 
-gulp.task('copy:jquery', function () {
-    return gulp.src(['node_modules/jquery/dist/jquery.min.js'])
-               .pipe(plugins.rename('jquery-' + pkg.devDependencies.jquery + '.min.js'))
-               .pipe(gulp.dest(dirs.dist + '/js/vendor'));
-});
+    gulp.src(['node_modules/font-awesome/css/font-awesome.min.css'
+    ])
+        .pipe(plugins.rename('vendor.min.css'))
+        .pipe(gulp.dest(dirs.dist + '/css'));
 
-gulp.task('copy:license', function () {
-    return gulp.src('LICENSE.txt')
-               .pipe(gulp.dest(dirs.dist));
-});
-
-gulp.task('copy:main.css', function () {
-
-    var banner = '/*! HTML5 Boilerplate v' + pkg.version +
-                    ' | ' + pkg.license.type + ' License' +
-                    ' | ' + pkg.homepage + ' */\n\n';
-
-    return gulp.src(dirs.src + '/css/main.css')
-               .pipe(plugins.header(banner))
-               .pipe(plugins.autoprefixer({
-                   browsers: ['last 2 versions', 'ie >= 8', '> 1%'],
-                   cascade: false
-               }))
-               .pipe(gulp.dest(dirs.dist + '/css'));
+    gulp.src(['node_modules/font-awesome/fonts/*'
+    ])
+        .pipe(gulp.dest(dirs.dist + '/fonts'));
 });
 
 gulp.task('copy:misc', function () {
-    return gulp.src([
+    gulp.src('LICENSE.txt')
+        .pipe(gulp.dest(dirs.dist));
 
+    gulp.src([
         // Copy all files
         dirs.src + '/**/*',
 
         // Exclude the following files
         // (other tasks will handle the copying of these files)
-        '!' + dirs.src + '/css/main.css',
-        '!' + dirs.src + '/index.html'
-
+        '!' + dirs.src + '/css/*',
+        '!' + dirs.src + '/js/*'
     ], {
 
         // Include hidden files by default
@@ -142,9 +113,36 @@ gulp.task('copy:misc', function () {
     }).pipe(gulp.dest(dirs.dist));
 });
 
-gulp.task('copy:normalize', function () {
-    return gulp.src('node_modules/normalize.css/normalize.css')
-               .pipe(gulp.dest(dirs.dist + '/css'));
+gulp.task('bundle', [
+    'bundle:css',
+    'bundle:js'
+]);
+
+gulp.task('bundle:css', function (done) {
+    require('del')(dirs.dist + '/css/bundle.min.css', done);
+    gulp.src([dirs.src + '/css/*',
+        'node_modules/normalize.css/normalize.css'])
+        .pipe(plugins.concatCss('bundle.css'))
+        .pipe(plugins.autoprefixer({
+            browsers: ['last 2 versions', 'ie >= 8', '> 1%'],
+            cascade: false
+        }))
+        .pipe(plugins.minifyCss())
+        .pipe(plugins.rename('bundle.min.css'))
+        .pipe(gulp.dest(dirs.dist + '/css'))
+        .pipe(plugins.connect.reload());
+});
+
+gulp.task('bundle:js', function (done) {
+    require('del')(dirs.dist + '/js/app.min.js', done);
+    gulp.src([dirs.src + '/js/**/*.js'])
+        .pipe(plugins.sourcemaps.init())
+            .pipe(plugins.concat('app.min.js'))
+            .pipe(plugins.ngAnnotate())
+            .pipe(plugins.uglify())
+        .pipe(plugins.sourcemaps.write())
+        .pipe(gulp.dest(dirs.dist + '/js'))
+        .pipe(plugins.connect.reload());
 });
 
 gulp.task('lint:js', function () {
@@ -156,6 +154,19 @@ gulp.task('lint:js', function () {
       .pipe(plugins.jshint())
       .pipe(plugins.jshint.reporter('jshint-stylish'))
       .pipe(plugins.jshint.reporter('fail'));
+});
+
+gulp.task('watch', function () {
+    gulp.watch(dirs.src + '/js/*.js', ['bundle']);
+    gulp.watch(dirs.src + '/css/*.css', ['bundle']);
+    gulp.watch(dirs.src + '/*.html', ['build']);
+});
+
+gulp.task('connect', function () {
+    plugins.connect.server({
+        root: 'dist',
+        livereload: true
+    });
 });
 
 // ---------------------------------------------------------------------
@@ -172,13 +183,8 @@ gulp.task('archive', function (done) {
 
 gulp.task('build', function (done) {
     runSequence(
-        ['clean', 'lint:js'],
-        'copy',
-    done);
+        ['connect', 'clean'],
+        ['copy', 'bundle'],
+        'watch',
+        done);
 });
-
-gulp.task('webserver', function () {
-    browserSync(config);
-});
-
-gulp.task('default', ['build', 'webserver']);
