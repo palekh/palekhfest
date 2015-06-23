@@ -7,6 +7,7 @@ DROP TABLE IF EXISTS Role;
 DROP TABLE IF EXISTS PrimaryAttribute;
 DROP TABLE IF EXISTS Side;
 DROP TABLE IF EXISTS AttackType;
+DROP TABLE IF EXISTS RolesOfHero;
 SET FOREIGN_KEY_CHECKS = 1;
 
 CREATE TABLE `Hero` (
@@ -52,8 +53,8 @@ CREATE TABLE `AttackType` (
 
 
 CREATE TABLE `RolesOfHero` (
-    `RoleId` int NOT NULL AUTO_INCREMENT,
-    `HeroId` int NOT NULL AUTO_INCREMENT,
+    `RoleId` int NOT NULL,
+    `HeroId` int NOT NULL,
     PRIMARY KEY (`RoleId`,`HeroId`)
 );
 
@@ -61,7 +62,7 @@ ALTER TABLE `RolesOfHero` ADD CONSTRAINT `RolesOfHero_fk0` FOREIGN KEY (`RoleId`
 ALTER TABLE `RolesOfHero` ADD CONSTRAINT `RolesOfHero_fk1` FOREIGN KEY (`HeroId`) REFERENCES `Hero`(`ID`);
 
 
-INSERT INTO 'Role' ('Title') VALUES
+INSERT INTO `Role` (`Title`) VALUES
     ('Carry'),
     ('Disabler'),
     ('Lane Support'),
@@ -73,20 +74,20 @@ INSERT INTO 'Role' ('Title') VALUES
     ('Pusher'),
     ('Escape');
 
-INSERT INTO 'PrimaryAttribute' ('Title') VALUES
+INSERT INTO `PrimaryAttribute` (`Title`) VALUES
     ('Strength'),
     ('Agility'),
     ('Intelligence');
 
-INSERT INTO 'Side' ('Title') VALUES
+INSERT INTO `Side` (`Title`) VALUES
     ('Radiant'),
     ('Dire');
 
-INSERT INTO 'AttackType' ('Title') VALUES
+INSERT INTO `AttackType` (`Title`) VALUES
     ('Melee'),
     ('Ranged');
 
-INSERT INTO 'Hero' ('Title', 'PrimaryAttributeId', 'SideId', 'AttackTypeId') VALUES
+INSERT INTO `Hero` (`Title`, `PrimaryAttributeId`, `SideId`, `AttackTypeId`) VALUES
     ('Earthshaker',1,1,1),
     ('Sven',1,1,1),
     ('Tiny',1,1,1),
@@ -198,7 +199,7 @@ INSERT INTO 'Hero' ('Title', 'PrimaryAttributeId', 'SideId', 'AttackTypeId') VAL
     ('Visage',3,2,2),
     ('Winter Wyvern',3,2,2);
 
-INSERT INTO 'RolesOfHero' ('HeroId','RoleId') VALUES
+INSERT INTO `RolesOfHero` (`HeroId`,`RoleId`) VALUES
     (1,4),(1,2),(1,6),(1,3),
     (2,2),(2,4),(2,1),(2,6),
     (3,2),(3,8),(3,4),(3,7),
@@ -285,9 +286,9 @@ INSERT INTO 'RolesOfHero' ('HeroId','RoleId') VALUES
     (84,8),(84,2),(84,7),
     (85,2),(85,8),
     (86,8),(86,6),(86,4),(86,2),
-    (87,8),(86,6),(86,3),
-    (88,8),(87,6),
-    (89,6),(88,3),(88,8),
+    (87,8),(87,6),(87,3),
+    (88,8),(88,6),
+    (89,6),(89,3),(89,8),
     (90,8),(90,9),
     (91,2),(91,8),(91,6),
     (92,6),(92,3),(92,8),
@@ -309,6 +310,3 @@ INSERT INTO 'RolesOfHero' ('HeroId','RoleId') VALUES
     (108,6),(108,2),(108,8),
     (109,8),(109,7),(109,2),
     (110,6),(110,8);
-
-
-
