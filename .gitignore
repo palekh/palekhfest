@@ -1,4 +1,4 @@
-archive/**
-node_modules/**
-dist/**
-.idea/**
+archive/
+dist/
+node_modules/
+.idea/
