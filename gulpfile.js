@@ -65,41 +65,46 @@ gulp.task('clean', function (done) {
 });
 
 gulp.task('copy', [
-    'copy:index.html',
     'copy:vendor',
-    'copy:license',
     'copy:misc'
 ]);
 
-gulp.task('copy:index.html', function () {
-    return gulp.src(dirs.src + '/index.html')
-               .pipe(plugins.replace(/{{JQUERY_VERSION}}/g, pkg.devDependencies.jquery))
-               .pipe(gulp.dest(dirs.dist));
-});
-
 gulp.task('copy:vendor', function () {
-    return gulp.src(['node_modules/jquery/dist/jquery.min.js'])
-               .pipe(plugins.rename('jquery-' + pkg.devDependencies.jquery + '.min.js'))
-               .pipe(gulp.dest(dirs.dist + '/js/vendor'));
-});
+    gulp.src(['node_modules/jquery/dist/jquery.min.js',
+        'node_modules/angular/angular.min.js',
+        'node_modules/angular-route/angular-route.min.js'
+    ])
+        .pipe(plugins.concat('vendor.min.js'))
+        .pipe(gulp.dest(dirs.dist + '/js'));
 
-gulp.task('copy:license', function () {
-    return gulp.src('LICENSE.txt')
-               .pipe(gulp.dest(dirs.dist));
+    gulp.src(['node_modules/jquery/dist/jquery.min.map',
+        'node_modules/angular/angular.min.js.map',
+        'node_modules/angular-route/angular-route.min.js.map'
+    ])
+        .pipe(gulp.dest(dirs.dist + '/js'));
+
+    gulp.src(['node_modules/font-awesome/css/font-awesome.min.css'
+    ])
+        .pipe(plugins.rename('vendor.min.css'))
+        .pipe(gulp.dest(dirs.dist + '/css'));
+
+    gulp.src(['node_modules/font-awesome/fonts/*'
+    ])
+        .pipe(gulp.dest(dirs.dist + '/fonts'));
 });
 
 gulp.task('copy:misc', function () {
-    return gulp.src([
+    gulp.src('LICENSE.txt')
+        .pipe(gulp.dest(dirs.dist));
 
+    gulp.src([
         // Copy all files
         dirs.src + '/**/*',
 
         // Exclude the following files
         // (other tasks will handle the copying of these files)
         '!' + dirs.src + '/css/*',
-        '!' + dirs.src + '/js/*',
-        '!' + dirs.src + '/index.html'
-
+        '!' + dirs.src + '/js/*'
     ], {
 
         // Include hidden files by default
@@ -113,8 +118,9 @@ gulp.task('bundle', [
     'bundle:js'
 ]);
 
-gulp.task('bundle:css', function () {
-    return gulp.src([dirs.src + '/css/*',
+gulp.task('bundle:css', function (done) {
+    require('del')(dirs.dist + '/css/bundle.min.css', done);
+    gulp.src([dirs.src + '/css/*',
         'node_modules/normalize.css/normalize.css'])
         .pipe(plugins.concatCss('bundle.css'))
         .pipe(plugins.autoprefixer({
@@ -123,19 +129,20 @@ gulp.task('bundle:css', function () {
         }))
         .pipe(plugins.minifyCss())
         .pipe(plugins.rename('bundle.min.css'))
-        .pipe(gulp.dest(dirs.dist + '/css'));
+        .pipe(gulp.dest(dirs.dist + '/css'))
+        .pipe(plugins.connect.reload());
 });
 
-gulp.task('bundle:js', function () {
-    return gulp.src([dirs.src + '/js/**/*.js',
-        '!' + dirs.src + '/js/vendor/*'
-    ])
+gulp.task('bundle:js', function (done) {
+    require('del')(dirs.dist + '/js/app.min.js', done);
+    gulp.src([dirs.src + '/js/**/*.js'])
         .pipe(plugins.sourcemaps.init())
             .pipe(plugins.concat('app.min.js'))
             .pipe(plugins.ngAnnotate())
             .pipe(plugins.uglify())
         .pipe(plugins.sourcemaps.write())
-        .pipe(gulp.dest(dirs.dist + '/js'));
+        .pipe(gulp.dest(dirs.dist + '/js'))
+        .pipe(plugins.connect.reload());
 });
 
 gulp.task('lint:js', function () {
@@ -147,6 +154,19 @@ gulp.task('lint:js', function () {
       .pipe(plugins.jshint())
       .pipe(plugins.jshint.reporter('jshint-stylish'))
       .pipe(plugins.jshint.reporter('fail'));
+});
+
+gulp.task('watch', function () {
+    gulp.watch(dirs.src + '/js/*.js', ['bundle']);
+    gulp.watch(dirs.src + '/css/*.css', ['bundle']);
+    gulp.watch(dirs.src + '/*.html', ['build']);
+});
+
+gulp.task('connect', function () {
+    plugins.connect.server({
+        root: 'dist',
+        livereload: true
+    });
 });
 
 // ---------------------------------------------------------------------
@@ -163,9 +183,8 @@ gulp.task('archive', function (done) {
 
 gulp.task('build', function (done) {
     runSequence(
-        ['clean', 'lint:js'],
+        ['connect', 'clean'],
         ['copy', 'bundle'],
-    done);
+        'watch',
+        done);
 });
-
-gulp.task('default', ['build']);
