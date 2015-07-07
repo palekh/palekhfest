@@ -1,6 +1,11 @@
 @import '_settings.scss';
 
-nav a {
+a {
   color: $black;
   text-decoration: none;
+}
+
+nav .current {
+    padding-bottom: $paddingBorder;
+    border-bottom: $paddingBorder solid $black;
 }

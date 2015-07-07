@@ -1,5 +1,11 @@
+<div class="logo">
+    <h4>фестиваль искусств в палехе</h4>
+
+    <h1><a href="/" ng-click="navigation.setPage(0)">яблочный спас</a></h1>
+    <h4>2015</h4>
+</div>
 <nav>
-    <a ng-class="{ active:tab.isSet(1) }" href ng-click="tab.setTab(1)">Description</a>
-    <a ng-class="{ active:tab.isSet(2) }" href ng-click="tab.setTab(2)">Specs</a>
-    <a ng-class="{ active:tab.isSet(3) }" href ng-click="tab.setTab(3)">Reviews</a>
+    <a ng-class="{ current:navigation.isSet(1) }" href="/program" ng-click="navigation.setPage(1)">Программа</a>
+    <a ng-class="{ current:navigation.isSet(2) }" href="/guide" ng-click="navigation.setPage(2)">Путеводитель</a>
+    <a ng-class="{ current:navigation.isSet(3) }" href="/contacts" ng-click="navigation.setPage(3)">Контакты</a>
 </nav>
