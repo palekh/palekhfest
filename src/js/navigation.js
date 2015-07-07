@@ -3,14 +3,14 @@ app.directive("navigation", function () {
         restrict: "A",
         templateUrl: "views/navigationSection.html",
         controller: function () {
-            this.tab = 1;
+            this.page = 1;
 
-            this.isSet = function (checkTab) {
-                return this.tab === checkTab;
+            this.isSet = function (checkPage) {
+                return this.page === checkPage;
             };
 
-            this.setTab = function (activeTab) {
-                this.tab = activeTab;
+            this.setPage = function (activePage) {
+                this.page = activePage;
             };
         },
         controllerAs: "navigation"
