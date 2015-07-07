@@ -83,8 +83,14 @@ gulp.task('copy:vendor', function () {
     ])
         .pipe(gulp.dest(dirs.dist + '/js'));
 
-    gulp.src(['node_modules/font-awesome/css/font-awesome.min.css'
+    gulp.src(['node_modules/font-awesome/css/font-awesome.css',
+        'node_modules/normalize.css/normalize.css'
     ])
+        .pipe(plugins.concatCss('vendor.css'))
+        .pipe(plugins.uncss({
+            html: [dirs.src + 'index.html', dirs.src + '/views/**/*.html']
+        }))
+        .pipe(plugins.minifyCss())
         .pipe(plugins.rename('vendor.min.css'))
         .pipe(gulp.dest(dirs.dist + '/css'));
 
@@ -113,6 +119,13 @@ gulp.task('copy:misc', function () {
     }).pipe(gulp.dest(dirs.dist));
 });
 
+gulp.task('copy:html', function (done) {
+    require('del')(dirs.dist + '/views/*', done);
+    gulp.src([dirs.src + '/views/**/*.html'])
+        .pipe(gulp.dest(dirs.dist + '/views'))
+        .pipe(plugins.connect.reload());
+});
+
 gulp.task('bundle', [
     'bundle:css',
     'bundle:js'
@@ -120,9 +133,8 @@ gulp.task('bundle', [
 
 gulp.task('bundle:css', function (done) {
     require('del')(dirs.dist + '/css/bundle.min.css', done);
-    gulp.src([dirs.src + '/css/*',
-        'node_modules/normalize.css/normalize.css'])
-        .pipe(plugins.concatCss('bundle.css'))
+    gulp.src([dirs.src + '/css/*.scss'])
+        .pipe(plugins.sass({outputStyle: 'compressed'}))
         .pipe(plugins.autoprefixer({
             browsers: ['last 2 versions', 'ie >= 8', '> 1%'],
             cascade: false
@@ -158,8 +170,8 @@ gulp.task('lint:js', function () {
 
 gulp.task('watch', function () {
     gulp.watch(dirs.src + '/js/*.js', ['bundle']);
-    gulp.watch(dirs.src + '/css/*.css', ['bundle']);
-    gulp.watch(dirs.src + '/*.html', ['build']);
+    gulp.watch(dirs.src + '/css/*.scss', ['bundle']);
+    gulp.watch(dirs.src + '/views/*.html', ['copy:html']);
 });
 
 gulp.task('connect', function () {
