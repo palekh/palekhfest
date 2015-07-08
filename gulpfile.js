@@ -10,6 +10,7 @@ var plugins = require('gulp-load-plugins')();
 // Temporary solution until gulp 4
 // https://github.com/gulpjs/gulp/issues/355
 var runSequence = require('run-sequence');
+var eventStream = require('event-stream');
 
 var pkg = require('./package.json');
 var dirs = pkg['h5bp-configs'].directories;
@@ -133,7 +134,8 @@ gulp.task('bundle', [
 
 gulp.task('bundle:css', function (done) {
     require('del')(dirs.dist + '/css/bundle.min.css', done);
-    gulp.src([dirs.src + '/css/*.scss'])
+
+    gulp.src([dirs.src + '/css/app.scss'])
         .pipe(plugins.sass({outputStyle: 'compressed'}))
         .pipe(plugins.autoprefixer({
             browsers: ['last 2 versions', 'ie >= 8', '> 1%'],
