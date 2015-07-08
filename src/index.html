@@ -12,8 +12,8 @@
 
         <link href="http://fonts.googleapis.com/css?family=Fira+Sans:400,500,700&amp;subset=latin,cyrillic"
               rel="stylesheet" type="text/css">
-        <link rel="stylesheet" href="css/bundle.min.css">
         <link rel="stylesheet" href="css/vendor.min.css">
+        <link rel="stylesheet" href="css/bundle.min.css">
         <base href="/">
     </head>
     <body>
@@ -26,9 +26,11 @@
         <!-- Add your site or application content here -->
         <div ng-app="app">
             <header>
-                <navigation></navigation>
+                <navigation class="container"></navigation>
             </header>
-            <ng-view></ng-view>
+            <div class="container content-wrapper">
+                <ng-view></ng-view>
+            </div>
         </div>
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->

@@ -3,7 +3,7 @@ app.directive("navigation", function () {
         restrict: "E",
         templateUrl: "views/navigationSection.html",
         controller: function () {
-            this.page = 1;
+            this.page = 0;
 
             this.isSet = function (checkPage) {
                 return this.page === checkPage;
