@@ -1,60 +1,13 @@
-<p>program</p>
-<p>program</p>
-<p>program</p>
-<p>program</p>
-<p>program</p>
-<p>program</p>
-<p>program</p>
-<p>program</p>
-<p>program</p>
-<p>program</p>
-<p>program</p>
-<p>program</p>
-<p>program</p>
-<p>program</p>
-<p>program</p>
-<p>program</p>
-<p>program</p>
-<p>program</p>
-<p>program</p>
-<p>program</p>
-<p>program</p>
-<p>program</p>
-<p>program</p>
-<p>program</p>
-<p>program</p>
-<p>program</p>
-<p>program</p>
-<p>program</p>
-<p>program</p>
-<p>program</p>
-<p>program</p>
-<p>program</p>
-<p>program</p>
-<p>program</p>
-<p>program</p>
-<p>program</p>
-<p>program</p>
-<p>program</p>
-<p>program</p>
-<p>program</p>
-<p>program</p>
-<p>program</p>
-<p>program</p>
-<p>program</p>
-<p>program</p>
-<p>program</p>
-<p>program</p>
-<p>program</p>
-<p>program</p>
-<p>program</p>
-<p>program</p>
-<p>program</p>
-<p>program</p>
-<p>program</p>
-<p>program</p>
-<p>program</p>
-<p>program</p>
-<p>program</p>
-<p>program</p>
-<p>program</p>
+<div class="days" ng-repeat="day in program.days">
+    <p ng-bind="day.date"></p>
+
+    <h1 ng-bind="day.name"></h1>
+
+    <div ng-repeat="event in day.events">
+        <p>
+            <b ng-bind="event.time"></b>
+            <span ng-bind="event.name"></span>
+        </p>
+    </div>
+</div>
+
