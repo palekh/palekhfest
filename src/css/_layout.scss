@@ -1,17 +1,23 @@
-body {
-  font-family: 'Fira Sans', Arial, sans-serif;
-  margin-bottom: -16px;
+* {
+    margin: 0;
+    padding: 0;
 }
 
-.container {
-  margin-left: auto;
-  margin-right: auto;
+html,
+body,
+.wrapper {
+    font-family: 'Fira Sans', Arial, sans-serif;
+    height: 100%;
 }
 
-.content-wrapper {
-  margin-top: $navHeight;
-  padding-top: $padding2;
-  margin-bottom: 0;
-  padding-bottom: 0;
-  background: linear-gradient(45deg, red, blue);
+.content {
+    box-sizing: border-box;
+    min-height: 100%;
+    margin-top: $navHeight;
+    padding-bottom: $footerHeight;
+}
+
+footer {
+    height: $footerHeight;
+    margin-top: -$footerHeight;
 }

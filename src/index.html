@@ -15,23 +15,27 @@
         <link rel="stylesheet" href="css/vendor.min.css">
         <link rel="stylesheet" href="css/bundle.min.css">
         <base href="/">
+        <script src="js/vendor.min.js"></script>
+        <script src="js/app.min.js"></script>
     </head>
     <body>
         <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-        <script src="js/vendor.min.js"></script>
-        <script src="js/app.min.js"></script>
         <!-- Add your site or application content here -->
-        <div ng-app="app">
+        <div ng-app="app" class="wrapper">
             <header>
-                <navigation class="container"></navigation>
+                <navigation></navigation>
             </header>
-            <div class="container content-wrapper">
+            <div class="content">
                 <ng-view></ng-view>
             </div>
+            <footer>
+                <apple-footer></apple-footer>
+            </footer>
         </div>
+
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script>

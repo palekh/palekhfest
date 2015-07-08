@@ -1,60 +1,60 @@
 navigation {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  height: $navHeight;
-  background: $white;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: $navHeight;
+    background: $white;
 }
 
 a {
-  color: $black;
-  text-decoration: none;
+    color: $black;
+    text-decoration: none;
 }
 
 nav {
-  padding: $padding3 $padding2;
-  float: right;
-  .current {
-    padding-bottom: $paddingMin;
-    border-bottom: $border solid $black;
-  }
+    padding: $padding3 $padding2;
+    float: right;
+    .current {
+        padding-bottom: $paddingMin;
+        border-bottom: $border solid $black;
+    }
 
-  a {
-    margin-right: $padding2;
-  }
+    a {
+        margin-right: $padding2;
+    }
 }
 
 .logo {
-  position: absolute;
-  top: 0;
-  left: 100px;
-  width: $logoWidth;
-  a {
-    font-size: 2em;
-  }
+    position: absolute;
+    top: 0;
+    left: 100px;
+    width: $logoWidth;
+    a {
+        font-size: 2em;
+    }
 
-  .container {
-    background: $yellow;
-    padding: $padding2 $padding3 0;
-    line-height: $padding3;
-    letter-spacing: 1pt;
-  }
+    .container {
+        background: $yellow;
+        padding: $padding2 $padding3 0;
+        line-height: $padding3;
+        letter-spacing: 1pt;
+    }
 
-  #triangle-topleft {
-    width: 0;
-    height: 0;
-    border-top: $logoWidth / 5 solid $yellow;
-    border-right: $logoWidth solid transparent;
-  }
+    #triangle-topleft {
+        width: 0;
+        height: 0;
+        border-top: $logoWidth / 5 solid $yellow;
+        border-right: $logoWidth solid transparent;
+    }
 }
 
 .white-text {
-  color: $white;
+    color: $white;
 }
 
 .white-line {
-  margin: $paddingMin 0;
-  background: $white;
-  height: 7px;
-  width: 18px;
+    margin: $paddingMin 0;
+    background: $white;
+    height: 7px;
+    width: 18px;
 }

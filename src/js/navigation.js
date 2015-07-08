@@ -1,7 +1,7 @@
 app.directive("navigation", function () {
     return {
         restrict: "E",
-        templateUrl: "views/navigationSection.html",
+        templateUrl: "views/elements/navigation.html",
         controller: function () {
             this.page = 0;
 
