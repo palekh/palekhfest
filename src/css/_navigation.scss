@@ -20,14 +20,14 @@ nav {
     }
 
     a {
-        margin-right: $padding2;
+        margin-right: $paddingMin;
     }
 }
 
 .logo {
     position: absolute;
     top: 0;
-    left: 100px;
+    left: $logoShift /2;
     width: $logoWidth;
     a {
         font-size: 2em;
