@@ -21,7 +21,3 @@ app.config(function ($routeProvider, $locationProvider) {
         redirectTo: '/'
     });
 });
-
-app.controller('MainCtrl', function () {
-    this.message = "Hello, World!";
-});

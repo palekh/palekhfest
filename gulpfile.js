@@ -135,7 +135,7 @@ gulp.task('bundle', [
 gulp.task('bundle:css', function (done) {
     require('del')(dirs.dist + '/css/bundle.min.css', done);
 
-    gulp.src([dirs.src + '/css/app.scss'])
+    gulp.src([dirs.src + '/css/base.scss'])
         .pipe(plugins.sass({outputStyle: 'compressed'}))
         .pipe(plugins.autoprefixer({
             browsers: ['last 2 versions', 'ie >= 8', '> 1%'],
@@ -173,7 +173,7 @@ gulp.task('lint:js', function () {
 gulp.task('watch', function () {
     gulp.watch(dirs.src + '/js/*.js', ['bundle']);
     gulp.watch(dirs.src + '/css/*.scss', ['bundle']);
-    gulp.watch(dirs.src + '/views/*.html', ['copy:html']);
+    gulp.watch(dirs.src + '/views/**/*.html', ['copy:html']);
 });
 
 gulp.task('connect', function () {
