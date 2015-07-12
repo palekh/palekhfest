@@ -15,10 +15,12 @@ app.directive("navigation", function ($location) {
                     tab: 0,
                     tabs: [{
                         number: 0,
-                        name: "путеводитель"
+                        name: "путеводитель",
+                        link: "/guide"
                     }, {
                         number: 1,
-                        name: "как добраться"
+                        name: "как добраться",
+                        link: "/guide/howtoget"
                     }
                     ]
                 },
@@ -34,13 +36,16 @@ app.directive("navigation", function ($location) {
                     tab: 0,
                     tabs: [{
                         number: 0,
-                        name: "конкурс"
+                        name: "конкурс",
+                        link: "/contest/about"
                     }, {
                         number: 1,
-                        name: "сказка"
+                        name: "сказка",
+                        link: "/contest/fairytale"
                     }, {
                         number: 2,
-                        name: "положение"
+                        name: "положение",
+                        link: "/contest/rules"
                     }
                     ]
                 },
@@ -49,25 +54,17 @@ app.directive("navigation", function ($location) {
                     name: "контакты",
                     link: "/contacts"
                 }];
-
-            switch ($location.path()) {
-                case this.links[0].link:
-                    this.page = this.links[0].number;
-                    break;
-                case this.links[1].link:
-                    this.page = this.links[1].number;
-                    break;
-                case this.links[2].link:
-                    this.page = this.links[2].number;
-                    break;
-                case this.links[3].link:
-                    this.page = this.links[3].number;
-                    break;
-                case this.links[4].link:
-                    this.page = this.links[4].number;
-                    break;
-                default:
-                    this.page = -1;
+            if ($location.path() == '/') this.page = -1;
+            else {
+                var link = this.links.filter(function (item) {
+                    return $location.path().includes(item.link);
+                })[0];
+                this.page = link.number;
+                if (link.tabs != null) {
+                    link.tab = link.tabs.filter(function (item) {
+                        return item.link.includes($location.path());
+                    })[0].number;
+                }
             }
 
             this.isSet = function (checkPage) {
