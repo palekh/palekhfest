@@ -10,10 +10,11 @@
     <div id="triangle-topleft"></div>
 </div>
 <nav>
-    <a ng-class="{ current:navigation.isSet(1) }" href="#/program" ng-click="navigation.setPage(1)">программа /</a>
-    <a ng-class="{ current:navigation.isSet(2) }" href="#/guide" ng-click="navigation.setPage(2)">путеводитель /</a>
-    <a ng-class="{ current:navigation.isSet(4) }" href="#/palekh" ng-click="navigation.setPage(4)">палех /</a>
-    <a ng-class="{ current:navigation.isSet(5) }" href="#/contest" ng-click="navigation.setPage(5)">конкурс /</a>
-    <a ng-class="{ current:navigation.isSet(6) }" href="#/partners" ng-click="navigation.setPage(6)">партнеры /</a>
-    <a ng-class="{ current:navigation.isSet(7) }" href="#/contacts" ng-click="navigation.setPage(7)">контакты /</a>
+    <span ng-repeat="link in navigation.links">
+        <a ng-class="{ current:navigation.isSet(link.number) }"
+           ng-bind="link.name"
+           href="#{{link.link}}"
+           ng-click="navigation.setPage(link.number)"></a>
+        /</span>
+
 </nav>
