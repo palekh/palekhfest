@@ -4,20 +4,25 @@
 }
 
 html,
-body,
-.wrapper {
-    font-family: 'Fira Sans', Arial, sans-serif;
+body {
     height: 100%;
 }
 
-.content {
-    box-sizing: border-box;
+.wrapper {
+    font-family: 'Fira Sans', Arial, sans-serif;
     min-height: 100%;
-    margin-top: $navHeight;
-    padding-bottom: $footerHeight;
+    position: relative;
+}
+
+.content {
+    padding-top: $navHeight;
+    padding-bottom: $footerHeight + $padding2*3;
+    padding-left: $logoShift + $logoWidth;
 }
 
 footer {
-    height: $footerHeight;
-    margin-top: -$footerHeight;
+    width: 100%;
+    height: $footerHeight + $padding2*2;
+    position: absolute;
+    bottom: 0;
 }

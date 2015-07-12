@@ -1,6 +1,6 @@
 var app = angular.module('app', ['ngRoute']);
 
-app.config(function ($routeProvider, $locationProvider) {
+app.config(function ($routeProvider) {
     $routeProvider.when("/", {
         templateUrl: "views/mainPage.html",
         controller: "MainCtrl",
@@ -17,7 +17,17 @@ app.config(function ($routeProvider, $locationProvider) {
         templateUrl: "views/contactsPage.html",
         controller: "ContactsCtrl",
         controllerAs: "contacts"
-    }).otherwise({
+    })
+        .when("/contest", {
+            templateUrl: "views/contactsPage.html",
+            controller: "ContestCtrl",
+            controllerAs: "contest"
+        })
+        .when("/palekh", {
+            templateUrl: "views/contactsPage.html",
+            controller: "PalekhCtrl",
+            controllerAs: "palekh"
+        }).otherwise({
         redirectTo: '/'
     });
 });

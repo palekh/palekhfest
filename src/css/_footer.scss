@@ -1,11 +1,8 @@
 footer {
   background: $yellow;
-    padding: $padding2 $padding3;
   apple-footer {
-    display: inline-block;
-    width: 100%;
-    height: 100%;
-
+    display: block;
+    padding: $padding2 $padding3;
     .copyright {
       float: left;
     }
@@ -16,5 +13,5 @@ footer {
         color: $white;
       }
     }
-  }
+    }
 }
