@@ -2,7 +2,7 @@
     <div class="container">
         <small class="white-text">фестиваль искусств в палехе</small>
         <br>
-        <b><a href="#/" ng-click="navigation.setPage(0)">яблочный<br>спас</a></b>
+        <b><a href="#/" ng-click="navigation.setPage(-1)">яблочный<br>спас</a></b>
 
         <div class="white-line"></div>
         <b><span class="white-text">2015</span></b>
@@ -10,11 +10,22 @@
     <div id="triangle-topleft"></div>
 </div>
 <nav>
-    <span ng-repeat="link in navigation.links">
-        <a ng-class="{ current:navigation.isSet(link.number) }"
+    <div ng-repeat="link in navigation.links">
+        <a ng-class=" { invisible:navigation.isSet(link.number) && navigation.isContainTabs(link.number),
+            current:navigation.isSet(link.number)}"
            ng-bind="link.name"
            href="#{{link.link}}"
            ng-click="navigation.setPage(link.number)"></a>
-        /</span>
 
+        <ul ng-show="(navigation.isSet(link.number) && navigation.isContainTabs(link.number))">
+            <li ng-repeat="tab in link.tabs">
+                <a ng-class="{current:navigation.isSetTab(tab.number)}"
+                   ng-bind="tab.name"
+                   href="#/"
+                   ng-click="navigation.setTab(tab.number)"></a>
+
+            </li>
+        </ul>
+        <span> /</span>
+    </div>
 </nav>

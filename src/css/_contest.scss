@@ -1,0 +1,11 @@
+.contest {
+  h2, h4 {
+    color: $yellow;
+  }
+  h3 {
+    background: $yellow;
+    padding: $paddingMin;
+    display: inline-block;
+    margin-bottom: $padding1;
+  }
+}

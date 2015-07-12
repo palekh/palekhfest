@@ -4,6 +4,7 @@ navigation {
     width: 100%;
     height: $navHeight;
     background: $white;
+    border-bottom: 1px solid $yellowGrey;
 }
 
 a {
@@ -12,16 +13,25 @@ a {
 }
 
 nav {
-    padding: $padding3 $padding2;
+    padding: 0 $padding2;
     float: right;
     .current {
-        padding-bottom: $paddingMin;
-        border-bottom: $border solid $black;
+        color: $yellow;
+    }
+    div {
+        position: relative;
+        display: inline-block;
+        margin: $padding2 $paddingMin $padding2 0;
+
+        ul {
+            display: inline-block;
+            list-style-type: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
     }
 
-    a {
-        margin-right: $paddingMin;
-    }
 }
 
 .logo {

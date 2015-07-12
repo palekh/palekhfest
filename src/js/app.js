@@ -19,7 +19,7 @@ app.config(function ($routeProvider) {
         controllerAs: "contacts"
     })
         .when("/contest", {
-            templateUrl: "views/contactsPage.html",
+            templateUrl: "views/contestPage.html",
             controller: "ContestCtrl",
             controllerAs: "contest"
         })
