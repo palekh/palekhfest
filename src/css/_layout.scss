@@ -18,7 +18,11 @@ body {
     padding-top: $navHeight;
     padding-bottom: $footerHeight + $padding2*3;
     padding-left: $logoShift + $logoWidth;
-    padding-right: $logoWidth;
+    padding-right: 10%;
+}
+
+@media only screen and (max-width: 700px) {
+
 }
 
 footer {
