@@ -4,27 +4,48 @@ app.directive("navigation", function ($location) {
         templateUrl: "views/elements/navigation.html",
         controller: function () {
             this.links = [{
-                number: 1,
+                number: 0,
                 name: "программа",
                 link: "/program"
             },
                 {
-                    number: 2,
+                    number: 1,
                     name: "путеводитель",
-                    link: "/guide"
+                    link: "/guide",
+                    tab: 0,
+                    tabs: [{
+                        number: 0,
+                        name: "путеводитель"
+                    }, {
+                        number: 1,
+                        name: "как добраться"
+                    }
+                    ]
                 },
                 {
-                    number: 3,
+                    number: 2,
                     name: "палех",
                     link: "/palekh"
                 },
                 {
-                    number: 4,
+                    number: 3,
                     name: "конкурс",
-                    link: "/contest"
+                    link: "/contest",
+                    tab: 0,
+                    tabs: [{
+                        number: 0,
+                        name: "конкурс"
+                    }, {
+                        number: 1,
+                        name: "сказка"
+                    }, {
+                        number: 2,
+                        name: "положение"
+                    }
+                    ]
                 },
                 {
-                    number: 5,
+                    number: 4,
                     name: "контакты",
                     link: "/contacts"
                 }];
@@ -46,15 +67,27 @@ app.directive("navigation", function ($location) {
                     this.page = this.links[4].number;
                     break;
                 default:
-                    this.page = 0;
+                    this.page = -1;
             }
 
             this.isSet = function (checkPage) {
                 return this.page === checkPage;
             };
 
+            this.isContainTabs = function (checkPage) {
+                return this.links[checkPage].tabs != null;
+            };
+
             this.setPage = function (activePage) {
                 this.page = activePage;
+            };
+
+            this.isSetTab = function (checkTab) {
+                return this.links[this.page].tab === checkTab;
+            };
+
+            this.setTab = function (activeTab) {
+                this.links[this.page].tab = activeTab;
             };
         },
         controllerAs: "navigation"

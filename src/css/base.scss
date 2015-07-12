@@ -1,6 +1,10 @@
 @import 'settings';
+//Common styles of pages and elements
 @import 'boilerplate';
 @import 'layout';
-@import 'navigation';
-@import 'program';
 @import 'footer';
+@import 'navigation';
+//Styles for pages
+@import 'program';
+@import 'contest';
+
