@@ -10,7 +10,9 @@ app.config(function ($routeProvider) {
         controller: "ProgramCtrl",
         controllerAs: "program"
     }).when("/guide", {
-        templateUrl: "views/guide/guide.html"
+        templateUrl: "views/guide/guide.html",
+        controller: "GuideCtrl",
+        controllerAs: "guide"
     }).when("/guide/howtoget", {
         templateUrl: "views/guide/howtoget.html"
     }).when("/contacts", {
