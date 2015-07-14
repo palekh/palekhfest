@@ -10,9 +10,7 @@ app.config(function ($routeProvider) {
         controller: "ProgramCtrl",
         controllerAs: "program"
     }).when("/guide", {
-        templateUrl: "views/guide/guide.html",
-        controller: "GuideCtrl",
-        controllerAs: "guide"
+        templateUrl: "views/guide/guide.html"
     }).when("/guide/howtoget", {
         templateUrl: "views/guide/howtoget.html"
     }).when("/contacts", {
@@ -33,9 +31,7 @@ app.config(function ($routeProvider) {
             templateUrl: "views/contest/rules.html"
         })
         .when("/palekh", {
-            templateUrl: "views/contacts.html",
-            controller: "PalekhCtrl",
-            controllerAs: "palekh"
+            templateUrl: "views/palekh.html"
         }).otherwise({
         redirectTo: '/'
     });

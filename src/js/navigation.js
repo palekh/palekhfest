@@ -2,11 +2,12 @@ app.directive("navigation", function ($location) {
     return {
         restrict: "E",
         templateUrl: "views/elements/navigation.html",
-        controller: function () {
-            this.links = [{
+        controller: function ($rootScope, $scope) {
+            $scope.links = [{
                 number: 0,
                 name: "программа",
-                link: "/program"
+                link: "/program",
+                tab: null
             },
                 {
                     number: 1,
@@ -27,7 +28,8 @@ app.directive("navigation", function ($location) {
                 {
                     number: 2,
                     name: "палех",
-                    link: "/palekh"
+                    link: "/palekh",
+                    tab: null
                 },
                 {
                     number: 3,
@@ -52,39 +54,43 @@ app.directive("navigation", function ($location) {
                 {
                     number: 4,
                     name: "контакты",
-                    link: "/contacts"
+                    link: "/contacts",
+                    tab: null
                 }];
-            if ($location.path() == '/') this.page = -1;
-            else {
-                var link = this.links.filter(function (item) {
-                    return $location.path().includes(item.link);
-                })[0];
-                this.page = link.number;
-                if (link.tabs != null) {
-                    link.tab = link.tabs.filter(function (item) {
-                        return item.link.includes($location.path());
-                    })[0].number;
+            $scope.page = -1;
+
+            $rootScope.$on("$routeChangeSuccess", function () {
+                if ($location.path() != '/') {
+                    var link = $scope.links.filter(function (item) {
+                        return $location.path().includes(item.link);
+                    })[0];
+                    $scope.page = link.number;
+                    if (link.tabs != null) {
+                        link.tab = link.tabs.filter(function (item) {
+                            return item.link.includes($location.path());
+                        })[0].number;
+                    }
                 }
-            }
+            });
 
             this.isSet = function (checkPage) {
-                return this.page === checkPage;
+                return $scope.page === checkPage;
             };
 
             this.isContainTabs = function (checkPage) {
-                return this.links[checkPage].tabs != null;
+                return $scope.links[checkPage].tabs != null;
             };
 
             this.setPage = function (activePage) {
-                this.page = activePage;
+                $scope.page = activePage;
             };
 
             this.isSetTab = function (checkTab) {
-                return this.links[this.page].tab === checkTab;
+                return $scope.page != -1 && $scope.links[$scope.page].tab === checkTab;
             };
 
             this.setTab = function (activeTab) {
-                this.links[this.page].tab = activeTab;
+                $scope.links[$scope.page].tab = activeTab;
             };
         },
         controllerAs: "navigation"

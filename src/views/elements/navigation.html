@@ -10,7 +10,7 @@
     <div id="triangle-topleft"></div>
 </div>
 <nav>
-    <div ng-repeat="link in navigation.links">
+    <div ng-repeat="link in links">
         <a ng-class=" { invisible:navigation.isSet(link.number) && navigation.isContainTabs(link.number),
             current:navigation.isSet(link.number)}"
            ng-bind="link.name"

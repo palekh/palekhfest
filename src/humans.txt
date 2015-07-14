@@ -3,13 +3,16 @@
 
 # TEAM
 
-    <name> -- <role> -- <twitter>
+    Igor Golopolosov -- Developer -- @igolopolosov
+    Jenya Lakeev -- Producer
+    Maria Larionova -- Designer
 
 # THANKS
 
-    <name>
+    Alexander Kurkin
+
 
 # TECHNOLOGY COLOPHON
 
     CSS3, HTML5
-    Apache Server Configs, jQuery, Modernizr, Normalize.css
+    Apache Server Configs, jQuery, AngularJS, Fontawesome, Modernizr, Normalize.css
