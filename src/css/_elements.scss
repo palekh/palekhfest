@@ -1,0 +1,16 @@
+.button {
+    display: inline-block;
+    color: $black;
+    border: $border / 2 solid $black;
+    margin: 0;
+    padding: $padding1;
+    text-align: center;
+
+    &:hover {
+        border-color: $yellow;
+    }
+
+    &:active {
+        border-color: $white;
+    }
+}

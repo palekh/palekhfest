@@ -1,0 +1,36 @@
+<script type="text/javascript">
+
+    ymaps.ready(init);
+    var myMap;
+
+    function init() {
+        myMap = new ymaps.Map("map", {
+            center: [56.80259142, 41.85475548],
+            zoom: 7
+        });
+
+        palekh = new ymaps.Placemark([56.80259142, 41.85475548], {
+            content: 'Палех',
+            balloonContent: 'Палех'
+        });
+
+
+        myMap.controls.add(
+            new ymaps.control.ZoomControl()
+        );
+
+        myMap.geoObjects.add(palekh);
+    }
+
+</script>
+
+<h2>Из Иваново</h2>
+<p><b>На машине</b> по трассе Р152 по направлению на Нижний Новгород.</p>
+<p><b>На автобусе</b> с главного автовокзала.</p>
+<br>
+
+<h2>Из Нижнего Новгорода</h2>
+<p><b>На машине</b> по трассе Р152 по направлению на Иваново.</p>
+<p><b>На автобусе</b> с Канавинского автовокзала.</p>
+<br>
+<div id="map" style="height: 600px;"></div>
