@@ -111,7 +111,8 @@ gulp.task('copy:misc', function () {
         // Exclude the following files
         // (other tasks will handle the copying of these files)
         '!' + dirs.src + '/css/*',
-        '!' + dirs.src + '/js/*'
+        '!' + dirs.src + '/js/*',
+        '!' + dirs.src + '/doc/*'
     ], {
 
         // Include hidden files by default
@@ -153,7 +154,7 @@ gulp.task('bundle:js', function (done) {
         .pipe(plugins.sourcemaps.init())
             .pipe(plugins.concat('app.min.js'))
             .pipe(plugins.ngAnnotate())
-        //.pipe(plugins.uglify())
+        .pipe(plugins.uglify())
         .pipe(plugins.sourcemaps.write())
         .pipe(gulp.dest(dirs.dist + '/js'))
         .pipe(plugins.connect.reload());
