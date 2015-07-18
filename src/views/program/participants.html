@@ -1,0 +1,15 @@
+<div class="participants">
+    <div ng-repeat="part in participants.people">
+        <h1 class="center-text type" ng-bind="part.type"></h1>
+
+        <div class="person" ng-repeat="person in part.persons">
+            <div class="inline person-title">
+                <div class="person-picture inline"></div>
+                <h2 class="inline" ng-bind="person.name"></h2>
+            </div>
+            <p ng-bind="person.about"></p>
+        </div>
+        <br>
+    </div>
+</div>
+
