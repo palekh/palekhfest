@@ -1,0 +1,43 @@
+.participants {
+    .type {
+        padding: $padding2 0;
+        border-top: $black solid $border / 2;
+        border-bottom: $black solid $border / 2;
+    }
+    .person {
+        padding: $padding1 $padding2;
+        margin-bottom: $padding1;
+        .person-title {
+            width: 100%;
+            margin: $padding1 0;
+        }
+        .person-picture {
+            background-color: $yellow;
+            background-repeat: no-repeat;
+            background-position: 50%;
+            border-radius: 50%;
+            width: $personPic;
+            height: $personPic;
+            vertical-align: middle;
+        }
+
+        h2 {
+            vertical-align: middle;
+        }
+
+        &:nth-child(odd) {
+            background-color: $yellow;
+
+            .person-picture {
+                float: right;
+                background-color: $black;
+            }
+
+            h2 {
+                float: right;
+                color: $black;
+            }
+
+        }
+    }
+}

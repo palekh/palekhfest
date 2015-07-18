@@ -29,6 +29,14 @@
             <header>
                 <navigation></navigation>
             </header>
+            <div class="intro" ng-controller="IntroCtrl as intro" ng-show="intro.isMain()">
+                <div class="main-bg"></div>
+                <div class="main-title">
+                    <h1>ПАЛЕХ</h1>
+
+                    <h1 class="white-text">15 - 16 августа</h1>
+                </div>
+            </div>
             <div class="content">
                 <ng-view></ng-view>
             </div>

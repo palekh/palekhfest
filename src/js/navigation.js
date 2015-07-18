@@ -7,7 +7,17 @@ app.directive("navigation", function ($location) {
                 number: 0,
                 name: "программа",
                 link: "/program",
-                tab: null
+                tab: 0,
+                tabs: [{
+                    number: 0,
+                    name: "программа",
+                    link: "/program"
+                }, {
+                    number: 1,
+                    name: "участники",
+                    link: "/program/participants"
+                }
+                ]
             },
                 {
                     number: 1,
@@ -58,8 +68,10 @@ app.directive("navigation", function ($location) {
                     tab: null
                 }];
             $scope.page = -1;
+            $scope.showNav = false;
 
             $rootScope.$on("$routeChangeSuccess", function () {
+                window.scrollTo(0, 0);
                 if ($location.path() != '/') {
                     var link = $scope.links.filter(function (item) {
                         return $location.path().includes(item.link);
@@ -82,6 +94,7 @@ app.directive("navigation", function ($location) {
             };
 
             this.setPage = function (activePage) {
+                $scope.showNav = false;
                 $scope.page = activePage;
             };
 
@@ -90,8 +103,22 @@ app.directive("navigation", function ($location) {
             };
 
             this.setTab = function (activeTab) {
+                $scope.showNav = false;
                 $scope.links[$scope.page].tab = activeTab;
             };
+
+            this.toggleNav = function () {
+                $scope.showNav = !$scope.showNav;
+            };
+
+            $scope.isShow = function () {
+                return $scope.showNav || window.innerWidth > 800;
+            };
+
+            $(window).resize(function () {
+                $scope.$apply(function () {
+                });
+            });
         },
         controllerAs: "navigation"
     };

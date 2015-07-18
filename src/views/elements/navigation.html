@@ -1,31 +1,28 @@
-<div class="logo">
-    <div class="container">
-        <small class="white-text">фестиваль искусств в палехе</small>
-        <br>
-        <b><a href="#/" ng-click="navigation.setPage(-1)">яблочный<br>спас</a></b>
-
-        <div class="white-line"></div>
-        <b><span class="white-text">2015</span></b>
-    </div>
-    <div id="triangle-topleft"></div>
-</div>
+<div ng-include="'views/elements/logo.html'"></div>
 <nav>
-    <div ng-repeat="link in links">
-        <a ng-class=" { invisible:navigation.isSet(link.number) && navigation.isContainTabs(link.number),
+    <div class="just-apple-feast nav-element">
+        <b><a href="#/" ng-click="navigation.setPage(-1)">яблочный спас</a></b>
+    </div>
+    <a class="menu" href="" ng-click="navigation.toggleNav()">меню<i class="fa fa-bars"></i></a>
+
+    <div class="fixed-nav" ng-show="isShow()">
+        <div class="nav-element" ng-repeat="link in links">
+            <a ng-class=" { invisible:navigation.isSet(link.number) && navigation.isContainTabs(link.number),
             current:navigation.isSet(link.number)}"
-           ng-bind="link.name"
-           href="#{{link.link}}"
-           ng-click="navigation.setPage(link.number)"></a>
+               ng-bind="link.name"
+               href="#{{link.link}}"
+               ng-click="navigation.setPage(link.number)"></a>
 
-        <ul ng-show="(navigation.isSet(link.number) && navigation.isContainTabs(link.number))">
-            <li ng-repeat="tab in link.tabs">
-                <a ng-class="{current:navigation.isSetTab(tab.number)}"
-                   ng-bind="tab.name"
-                   href="#{{tab.link}}"
-                   ng-click="navigation.setTab(tab.number)"></a>
+            <ul ng-show="(navigation.isSet(link.number) && navigation.isContainTabs(link.number))">
+                <li ng-repeat="tab in link.tabs">
+                    <a ng-class="{current:navigation.isSetTab(tab.number)}"
+                       ng-bind="tab.name"
+                       href="#{{tab.link}}"
+                       ng-click="navigation.setTab(tab.number)"></a>
 
-            </li>
-        </ul>
-        <span> /</span>
+                </li>
+            </ul>
+            <span> /</span>
+        </div>
     </div>
 </nav>

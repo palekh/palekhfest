@@ -1,17 +1,70 @@
 footer {
-  background: $yellow;
-  apple-footer {
-    display: block;
-    padding: $padding2 $padding3;
-    .copyright {
-      float: left;
-    }
+    background: $yellow;
+    apple-footer {
+        position: relative;
+        display: inline-block;
+        width: 100%;
+        margin: $padding2 0;
 
-    .author {
-      float: right;
-      a {
-        color: $white;
-      }
+        .copyright {
+            float: left;
+            margin-left: $padding2;
+        }
+
+        .author {
+            float: right;
+            margin-right: $padding2;
+            a {
+                color: $white;
+            }
+        }
+
+        .bird {
+            position: absolute;
+            top: - ($footerBirdHeight - $padding2*2);
+            right: 10vw;
+            height: $footerBirdHeight;
+            width: $footerBirdWidth;
+
+            .bird-one, .bird-two {
+                height: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+
+            .bird-one {
+                opacity: 0.5;
+                z-index: 1;
+            }
+        }
+
+        .dashes {
+            z-index: -10;
+            opacity: 0.5;
+            position: absolute;
+            right: 0;
+            bottom: $padding3*2;
+
+            padding-top: 12%;
+            width: 100%;
+            background: url("../img/footer-bg.png");
+            background-size: 100%;
+        }
     }
+}
+
+@media only screen and (max-width: 800px) {
+    footer {
+        text-align: center;
+        apple-footer {
+            .copyright, .author {
+                float: none;
+                margin: 0 $padding1;
+            }
+            .dashes {
+                bottom: $padding3*4;
+            }
+        }
     }
 }
