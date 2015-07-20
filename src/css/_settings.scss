@@ -1,19 +1,31 @@
+//color schema
 $black: #222;
 $white: #fff;
 $yellow: #ffe110;
 $yellowGrey: #e6da85;
 
+//common
+$maxWidth: 800px;
+$minWidth: 300px;
 $paddingMin: 4px;
 $padding1: 10px;
 $padding2: 20px;
 $padding3: 30px;
 $border: 4px;
 
-$logoWidth: 280px;
-$logoShift: 40px;
-$navHeight: 90px;
+//navigation
+$logoWidth: 260px;
+$navHeight: 70px;
+$navHeightMin: 60px;
+
+//footer
+$footerDashes: 120px;
 $footerBirdShift: 140px;
 $footerBirdHeight: 200px;
 $footerBirdWidth: $footerBirdHeight * 0.82;
 
+//pictures
+$partnerPic: 50px;
 $personPic: 100px;
+
+

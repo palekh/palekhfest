@@ -84,8 +84,7 @@ gulp.task('copy:vendor', function () {
     ])
         .pipe(gulp.dest(dirs.dist + '/js'));
 
-    gulp.src(['node_modules/font-awesome/css/font-awesome.css',
-        'node_modules/normalize.css/normalize.css'
+    gulp.src(['node_modules/normalize.css/normalize.css'
     ])
         .pipe(plugins.concatCss('vendor.css'))
         .pipe(plugins.uncss({
@@ -94,10 +93,6 @@ gulp.task('copy:vendor', function () {
         .pipe(plugins.minifyCss())
         .pipe(plugins.rename('vendor.min.css'))
         .pipe(gulp.dest(dirs.dist + '/css'));
-
-    gulp.src(['node_modules/font-awesome/fonts/*'
-    ])
-        .pipe(gulp.dest(dirs.dist + '/fonts'));
 });
 
 gulp.task('copy:misc', function () {
@@ -112,7 +107,9 @@ gulp.task('copy:misc', function () {
         // (other tasks will handle the copying of these files)
         '!' + dirs.src + '/css/*',
         '!' + dirs.src + '/js/*',
-        '!' + dirs.src + '/doc/*'
+        '!' + dirs.src + '/doc/*',
+        '!' + dirs.src + '/.gitignore',
+        '!' + dirs.src + '/.gitattributes'
     ], {
 
         // Include hidden files by default
@@ -154,7 +151,7 @@ gulp.task('bundle:js', function (done) {
         .pipe(plugins.sourcemaps.init())
             .pipe(plugins.concat('app.min.js'))
             .pipe(plugins.ngAnnotate())
-        //.pipe(plugins.uglify())
+        .pipe(plugins.uglify())
         .pipe(plugins.sourcemaps.write())
         .pipe(gulp.dest(dirs.dist + '/js'))
         .pipe(plugins.connect.reload());
@@ -184,6 +181,18 @@ gulp.task('connect', function () {
     });
 });
 
+gulp.task('sftp', function () {
+    return gulp.src(dirs.dist + '/**/*')
+        .pipe(plugins.sftp({
+            host: 'ftp.palekhfest.tk',
+            port: '21',
+            user: 'u345440680.palekhfest',
+            pass: 'palekhfest',
+            remotePath: '/home/u345440680/public_html/'
+        }));
+
+});
+
 // ---------------------------------------------------------------------
 // | Main tasks                                                        |
 // ---------------------------------------------------------------------
@@ -203,3 +212,12 @@ gulp.task('build', function (done) {
         'watch',
         done);
 });
+
+gulp.task('deploy', function (done) {
+    runSequence(
+        'clean',
+        ['copy', 'bundle'],
+        'sftp',
+        done);
+});
+

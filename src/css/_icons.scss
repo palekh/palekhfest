@@ -1,0 +1,64 @@
+@font-face {
+    font-family: 'Certa Sans Medium';
+    src: url('../fonts/certa-sans-medium.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'icomoon';
+    src: url('../fonts/icomoon.eot?n3e2o7');
+    src: url('../fonts/icomoon.eot?#iefixn3e2o7') format('embedded-opentype'),
+    url('../fonts/icomoon.ttf?n3e2o7') format('truetype'),
+    url('../fonts/icomoon.woff?n3e2o7') format('woff'),
+    url('../fonts/icomoon.svg?n3e2o7#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+    font-family: 'icomoon';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    text-align: center;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-download:before {
+    content: "\f019";
+}
+
+.icon-facebook:before {
+    content: "\f09a";
+}
+
+.icon-facebook-f:before {
+    content: "\f09a";
+}
+
+.icon-bars:before {
+    content: "\f0c9";
+}
+
+.icon-navicon:before {
+    content: "\f0c9";
+}
+
+.icon-reorder:before {
+    content: "\f0c9";
+}
+
+.icon-instagram:before {
+    content: "\f16d";
+}
+
+.icon-vk:before {
+    content: "\f189";
+}
