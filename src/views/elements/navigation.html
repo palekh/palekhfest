@@ -3,7 +3,7 @@
     <div class="just-apple-feast nav-element">
         <b><a href="#/" ng-click="navigation.setPage(-1)">яблочный спас</a></b>
     </div>
-    <a class="menu" href="" ng-click="navigation.toggleNav()">меню<i class="fa fa-bars"></i></a>
+    <a class="menu" href="" ng-click="navigation.toggleNav()">{{currentPageName()}} <span class="icon-bars"></span></a>
 
     <div class="fixed-nav" ng-show="isShow()">
         <div class="nav-element" ng-repeat="link in links">

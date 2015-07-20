@@ -14,7 +14,6 @@
               rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="css/vendor.min.css">
         <link rel="stylesheet" href="css/bundle.min.css">
-        <base href="/">
         <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
         <script src="js/vendor.min.js"></script>
         <script src="js/app.min.js"></script>
@@ -29,16 +28,8 @@
             <header>
                 <navigation></navigation>
             </header>
-            <div class="intro" ng-controller="IntroCtrl as intro" ng-show="intro.isMain()">
-                <div class="main-bg"></div>
-                <div class="main-title">
-                    <h1>ПАЛЕХ</h1>
-
-                    <h1 class="white-text">15 - 16 августа</h1>
-                </div>
-            </div>
             <div class="content">
-                <ng-view></ng-view>
+                <ng-view ng-cloak></ng-view>
             </div>
             <footer>
                 <apple-footer></apple-footer>

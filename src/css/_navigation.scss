@@ -31,21 +31,15 @@ nav {
         }
     }
 
-    .nav-element.just-apple-feast {
-        background: $yellow;
-        margin: $padding1 $paddingMin;
-        padding: $padding1;
-    }
-
     .just-apple-feast {
         display: none;
+        margin-left: $padding2;
         float: left;
-        background: $yellow;
     }
 
     .menu {
         display: none;
-        margin-right: $padding1;
+        margin-right: $padding2;
         float: right;
     }
 
@@ -64,15 +58,16 @@ nav {
 .logo {
     position: absolute;
     top: 0;
-    left: $logoShift /2;
+    left: $padding2;
     width: $logoWidth;
-    a {
-        font-size: 2em;
+
+    h1 {
+        margin: 0 0 0.33em 0;
     }
 
     .container {
         background: $yellow;
-        padding: $padding2 $padding3 0;
+        padding: $padding1 $padding2 0;
         line-height: $padding3;
         letter-spacing: 1pt;
     }
@@ -85,7 +80,10 @@ nav {
     }
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: $maxWidth) {
+    navigation {
+        height: $navHeightMin;
+    }
     .logo {
         .container, #triangle-topleft {
             display: none;
@@ -103,15 +101,21 @@ nav {
 
         .fixed-nav {
             border-bottom: $black solid $border / 2;
-            border-top: $black solid $border / 2;
             position: fixed;
-            top: $navHeight;
+            top: $navHeightMin;
             left: 0;
             right: 0;
             background: $white;
             text-align: center;
+
             .nav-element {
-                width: 40%;
+                margin-bottom: $padding3*2;
+            }
+            ul {
+                text-align: left;
+                li {
+                    margin-bottom: $padding1;
+                }
             }
         }
     }

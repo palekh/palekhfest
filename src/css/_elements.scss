@@ -22,6 +22,10 @@ body {
     margin-right: $paddingMin;
     margin-bottom: $padding1;
 
+    .icon-instagram {
+        padding-left: 4px;
+    }
+
     &:hover {
         border-color: $yellow;
     }
@@ -41,6 +45,10 @@ body {
 
 .black-text {
     color: $black;
+}
+
+.yellow-text {
+    color: $yellow;
 }
 
 .inline {

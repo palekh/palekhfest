@@ -54,10 +54,6 @@ app.directive("navigation", function ($location) {
                         number: 1,
                         name: "сказка",
                         link: "/contest/fairytale"
-                    }, {
-                        number: 2,
-                        name: "положение",
-                        link: "/contest/rules"
                     }
                     ]
                 },
@@ -115,6 +111,11 @@ app.directive("navigation", function ($location) {
                 return $scope.showNav || window.innerWidth > 800;
             };
 
+            $scope.currentPageName = function () {
+                if ($scope.page == -1) return "главная ";
+                if ($scope.links[$scope.page].tab == null) return $scope.links[$scope.page].name + " ";
+                else return $scope.links[$scope.page].tabs[$scope.links[$scope.page].tab].name + " ";
+            };
             $(window).resize(function () {
                 $scope.$apply(function () {
                 });
