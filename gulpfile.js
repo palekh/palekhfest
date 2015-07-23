@@ -149,8 +149,8 @@ gulp.task('bundle:js', function (done) {
     require('del')(dirs.dist + '/js/app.min.js', done);
     gulp.src([dirs.src + '/js/**/*.js'])
         .pipe(plugins.sourcemaps.init())
-            .pipe(plugins.concat('app.min.js'))
-            .pipe(plugins.ngAnnotate())
+        .pipe(plugins.concat('app.min.js'))
+        .pipe(plugins.ngAnnotate())
         .pipe(plugins.uglify())
         .pipe(plugins.sourcemaps.write())
         .pipe(gulp.dest(dirs.dist + '/js'))
@@ -163,9 +163,9 @@ gulp.task('lint:js', function () {
         dirs.src + '/js/*.js',
         dirs.test + '/*.js'
     ]).pipe(plugins.jscs())
-      .pipe(plugins.jshint())
-      .pipe(plugins.jshint.reporter('jshint-stylish'))
-      .pipe(plugins.jshint.reporter('fail'));
+        .pipe(plugins.jshint())
+        .pipe(plugins.jshint.reporter('jshint-stylish'))
+        .pipe(plugins.jshint.reporter('fail'));
 });
 
 gulp.task('watch', function () {
@@ -202,7 +202,7 @@ gulp.task('archive', function (done) {
         'build',
         'archive:create_archive_dir',
         'archive:zip',
-    done);
+        done);
 });
 
 gulp.task('build', function (done) {

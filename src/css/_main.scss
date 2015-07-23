@@ -4,12 +4,6 @@
 
 .organisation {
     margin-top: $padding3;
-    h2 {
-        padding: 0.33em 0;
-        border-top: $border / 2 solid $yellow;
-        border-bottom: $border / 2 solid $yellow;
-        margin-bottom: $padding2;
-    }
     border-bottom: $border / 2 solid $yellow;
     margin-bottom: $padding3;
 
@@ -19,9 +13,9 @@
             margin-bottom: $padding1;
             .partner-picture {
                 display: inline-block;
-                margin-bottom: $paddingMin;
-                background-color: $yellow;
+              background-position: center;
                 background-repeat: no-repeat;
+              background-size: 100%;
                 width: $partnerPic;
                 height: $partnerPic;
             }

@@ -14,9 +14,7 @@ app.config(function ($routeProvider) {
         controller: "ParticipantsCtrl",
         controllerAs: "participants"
     }).when("/guide", {
-        templateUrl: "views/guide/guide.html"
-    }).when("/guide/howtoget", {
-        templateUrl: "views/guide/howtoget.html"
+        templateUrl: "views/guide.html"
     }).when("/contacts", {
         templateUrl: "views/contacts.html"
     })
@@ -37,27 +35,11 @@ app.config(function ($routeProvider) {
 });
 
 
-app.controller('MainCtrl', function () {
-
-    this.partners = [{
-        name: 'Женщина',
-        link: '',
-        logo: ''
-    }, {
-        name: 'Мужик',
-        link: '',
-        logo: ''
-    }, {
-        name: 'Вторая Женщина',
-        link: '',
-        logo: ''
-    }, {
-        name: 'Третья Женщина',
-        link: '',
-        logo: ''
-    }, {
-        name: 'Второй Мужик',
-        link: '',
-        logo: ''
-    }];
+app.controller('MainCtrl', function ($scope, $http) {
+    $http.get('json/partners.json').success(function (data, status, headers, config) {
+        $scope.partners = data;
+    }).
+        error(function (data, status, headers, config) {
+            console.log('error');
+        });
 });
