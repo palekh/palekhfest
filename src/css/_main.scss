@@ -19,9 +19,9 @@
             margin-bottom: $padding1;
             .partner-picture {
                 display: inline-block;
-                margin-bottom: $paddingMin;
-                background-color: $yellow;
+              background-position: center;
                 background-repeat: no-repeat;
+              background-size: 100%;
                 width: $partnerPic;
                 height: $partnerPic;
             }

@@ -4,40 +4,55 @@
         border-top: $black solid $border / 2;
         border-bottom: $black solid $border / 2;
     }
+  .persons {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
     .person {
-        padding: $padding1 $padding2;
-        margin-bottom: $padding1;
-        .person-title {
-            width: 100%;
-            margin: $padding1 0;
-        }
-        .person-picture {
-            background-color: $yellow;
-            background-repeat: no-repeat;
-            background-position: 50%;
-            border-radius: 50%;
-            width: $personPic;
-            height: $personPic;
-            vertical-align: middle;
-        }
+      width: 30%;
+      height: 100%;
+      vertical-align: top;
+      display: inline-block;
+      padding: 1.5%;
 
-        h2 {
-            vertical-align: middle;
-        }
+      h1 {
+        font-size: 2.5vw;
+      }
 
-        &:nth-child(odd) {
-            background-color: $yellow;
-
-            .person-picture {
-                float: right;
+      .person-image {
+        position: relative;
                 background-color: $black;
+        background-position: center top;
+        background-size: cover;
+        background-repeat: no-repeat;
+        border-radius: 50%;
+        width: 100%;
+        padding-top: 100%;
             }
 
-            h2 {
-                float: right;
-                color: $black;
-            }
+      &:nth-child(even) {
+        .person-image {
+          background-color: $yellow;
+        }
 
+        h1 {
+          color: $yellow;
+        }
+
+            }
+    }
+  }
+}
+
+@media only screen and (max-width: $maxWidth) {
+  .participants {
+    .persons {
+      .person {
+        width: 45%;
+        h1 {
+          font-size: 5vw;
+        }
+      }
         }
     }
 }

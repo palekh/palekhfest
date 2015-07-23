@@ -1,15 +1,15 @@
 <div class="participants">
-    <div ng-repeat="part in participants.people">
+    <div ng-repeat="part in people">
         <h1 class="center-text type" ng-bind="part.type"></h1>
 
-        <div class="person" ng-repeat="person in part.persons">
-            <div class="inline person-title">
-                <div class="person-picture inline"></div>
-                <h2 class="inline" ng-bind="person.name"></h2>
-            </div>
-            <p ng-bind="person.about"></p>
+        <div class="persons">
+            <a href="{{hideLink(person)}}" target="{{hideTarget(person)}}" class="person"
+               ng-repeat="person in part.persons | orderBy: 'secret'">
+                <div class="person-image"
+                     ng-style="{'background-image':hideImage(person), 'background-color': hideBg(person)}"></div>
+                <h1 ng-bind="hideName(person)"></h1>
+            </a>
         </div>
-        <br>
     </div>
 </div>
 
