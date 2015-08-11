@@ -2,16 +2,16 @@ app.controller('ProgramCtrl', function () {
 
     this.days = [
         {
-            name: 'ДЕНЬ ПЕРВЫЙ',
+            name: 'суббота, день первый',
             date: '15 августа',
             events: [
                 {
-                    name: 'Открытие',
-                    time: '14:00'
+                    name: 'Открытие фестиваля',
+                    time: '11:00'
                 },
                 {
-                    name: 'Выставка',
-                    time: '15:00'
+                    name: 'Посадка яблони, символизирующей будущий город-сад',
+                    time: '12:00'
                 },
                 {
                     name: 'Мастер-класс',
@@ -25,7 +25,7 @@ app.controller('ProgramCtrl', function () {
         }
         ,
         {
-            name: 'ДЕНЬ ВТОРОЙ',
+            name: 'воскресенье, день второй',
             date: '16 августа',
             events: [
                 {

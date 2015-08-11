@@ -37,28 +37,6 @@ app.directive("navigation", function ($location) {
                 },
                 {
                     number: 2,
-                    name: "палех",
-                    link: "/palekh",
-                    tab: null
-                },
-                {
-                    number: 3,
-                    name: "конкурс",
-                    link: "/contest",
-                    tab: 0,
-                    tabs: [{
-                        number: 0,
-                        name: "конкурс",
-                        link: "/contest/about"
-                    }, {
-                        number: 1,
-                        name: "сказка",
-                        link: "/contest/fairytale"
-                    }
-                    ]
-                },
-                {
-                    number: 4,
                     name: "контакты",
                     link: "/contacts",
                     tab: null

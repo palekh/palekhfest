@@ -25,12 +25,6 @@ app.config(function ($routeProvider) {
         })
         .when("/contest/about", {
             templateUrl: "views/contest/about.html"
-        })
-        .when("/contest/fairytale", {
-            templateUrl: "views/contest/fairytale.html"
-        })
-        .when("/palekh", {
-            templateUrl: "views/palekh.html"
         }).otherwise({
         redirectTo: '/'
     });
