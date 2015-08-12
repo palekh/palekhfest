@@ -1,17 +1,21 @@
 <div class="program center-text">
     <div class="days" ng-repeat="day in program.days">
-        <h3 ng-bind="day.location"></h3>
-        <h5 ng-bind="day.address"></h5>
+        <h1 ng-bind="day.date"></h1>
+		<div ng-repeat="action in day.actions">
+			<h3 ng-bind="action.location"></h3>
+			<h5 ng-bind="action.address"></h5>
 
-        <div ng-repeat="event in day.events">
-            <p>
-                <b ng-bind="event.time"></b>
-                <span ng-bind="event.name"></span>
-                <br/>
-                <h6 ng-bind="event.description"></h6>
-            </p>
-        </div>
-        <br/>
+			<div ng-repeat="event in action.events">
+				<p>
+					<b ng-bind="event.time"></b>
+					<span ng-bind="event.name"></span>
+					<br/>
+					<h6 ng-bind="event.description"></h6>
+				</p>
+			</div>
+			<br/>
+		</div>
+		
     </div>
     <a class="button" target="_self" href="/pdf/program.pdf" download="Программа фестиваля Яблочный Спас.pdf">скачать
         программу <span
