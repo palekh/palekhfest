@@ -9,7 +9,7 @@ app.config(function ($routeProvider) {
         templateUrl: "views/program/program.html",
         controller: "ProgramCtrl",
         controllerAs: "program"
-    }).when("/program/participants", {
+    }).when("/participants", {
         templateUrl: "views/program/participants.html",
         controller: "ParticipantsCtrl",
         controllerAs: "participants"
@@ -17,19 +17,7 @@ app.config(function ($routeProvider) {
         templateUrl: "views/guide.html"
     }).when("/contacts", {
         templateUrl: "views/contacts.html"
-    })
-        .when("/contest", {
-            redirectTo: "/contest/about"
-        })
-        .when("/contest/about", {
-            templateUrl: "views/contest/about.html"
-        })
-        .when("/contest/fairytale", {
-            templateUrl: "views/contest/fairytale.html"
-        })
-        .when("/palekh", {
-            templateUrl: "views/palekh.html"
-        }).otherwise({
+    }).otherwise({
         redirectTo: '/'
     });
 });
