@@ -7,21 +7,10 @@
 
     <div class="fixed-nav" ng-show="isShow()">
         <div class="nav-element" ng-repeat="link in links">
-            <a ng-class=" { invisible:navigation.isSet(link.number) && navigation.isContainTabs(link.number),
-            current:navigation.isSet(link.number)}"
+            <a ng-class=" { current:navigation.isSet(link.number)}"
                ng-bind="link.name"
                href="#{{link.link}}"
                ng-click="navigation.setPage(link.number)"></a>
-
-            <ul ng-show="(navigation.isSet(link.number) && navigation.isContainTabs(link.number))">
-                <li ng-repeat="tab in link.tabs">
-                    <a ng-class="{current:navigation.isSetTab(tab.number)}"
-                       ng-bind="tab.name"
-                       href="#{{tab.link}}"
-                       ng-click="navigation.setTab(tab.number)"></a>
-
-                </li>
-            </ul>
             <span> /</span>
         </div>
     </div>

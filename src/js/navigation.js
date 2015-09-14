@@ -7,36 +7,22 @@ app.directive("navigation", function ($location) {
                 number: 0,
                 name: "программа",
                 link: "/program",
-                tab: 0,
-                tabs: [{
-                    number: 0,
-                    name: "программа",
-                    link: "/program"
-                }, {
-                    number: 1,
-                    name: "участники",
-                    link: "/program/participants"
-                }
-                ]
+                tab: null
             },
                 {
                     number: 1,
-                    name: "путеводитель",
-                    link: "/guide",
-                    tab: 0,
-                    tabs: [{
-                        number: 0,
-                        name: "путеводитель",
-                        link: "/guide"
-                    }, {
-                        number: 1,
-                        name: "как добраться",
-                        link: "/guide/howtoget"
-                    }
-                    ]
+                    name: "участники",
+                    link: "/participants",
+                    tab: null
                 },
                 {
                     number: 2,
+                    name: "путеводитель",
+                    link: "/guide",
+                    tab: null
+                },
+                {
+                    number: 3,
                     name: "контакты",
                     link: "/contacts",
                     tab: null
