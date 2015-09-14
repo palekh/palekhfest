@@ -25,7 +25,7 @@ app.controller('ParticipantsCtrl', function ($scope, $http) {
     };
 
     $http.get('json/participants.json').success(function (data, status, headers, config) {
-        $scope.participants = data;
+        $scope.people = data;
     }).
         error(function (data, status, headers, config) {
             console.log('error');

@@ -13,21 +13,7 @@ body {
     }
 }
 
-a {
-  &:hover {
-    opacity: 0.85;
-  }
-}
-
-.header-yellow-border {
-  padding: 0.33em 0;
-  border-top: $border / 2 solid $yellow;
-  border-bottom: $border / 2 solid $yellow;
-  margin-bottom: $padding2;
-}
-
 .button {
-  opacity: 1;
     display: inline-block;
     color: $black;
     border: $border / 2 solid $black;
@@ -41,7 +27,6 @@ a {
     }
 
     &:hover {
-      opacity: 1;
         border-color: $yellow;
     }
 
@@ -73,8 +58,4 @@ a {
 
 .center-text {
     text-align: center;
-}
-
-.left-text {
-  text-align: left;
 }

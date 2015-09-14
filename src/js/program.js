@@ -1,10 +1,51 @@
-app.controller('ProgramCtrl', function ($scope, $http) {
+app.controller('ProgramCtrl', function () {
 
-    $scope.days = $http.get('json/program.json')
-        .success(function (data, status, header, config) {
-            $scope.days = data;
-        })
-        .error(function (data, status, header, config) {
-            console.log('error');
-        });
+    this.days = [
+        {
+            name: 'суббота, день первый',
+            date: '15 августа',
+            events: [
+                {
+                    name: 'Открытие фестиваля',
+                    time: '11:00'
+                },
+                {
+                    name: 'Посадка яблони, символизирующей будущий город-сад',
+                    time: '12:00'
+                },
+                {
+                    name: 'Мастер-класс',
+                    time: '15:00'
+                },
+                {
+                    name: 'Акустический концерт',
+                    time: '18:00'
+                }
+            ]
+        }
+        ,
+        {
+            name: 'воскресенье, день второй',
+            date: '16 августа',
+            events: [
+                {
+                    name: 'Пленер',
+                    time: '10:00'
+                },
+                {
+                    name: 'Выставка',
+                    time: '12:00'
+                },
+                {
+                    name: 'Мастер-класс',
+                    time: '15:00'
+                },
+                {
+                    name: 'Закрытие',
+                    time: '20:00'
+                }
+            ]
+        }
+
+    ];
 });

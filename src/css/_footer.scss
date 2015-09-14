@@ -22,9 +22,9 @@ footer {
         .animal {
             position: absolute;
             top: - ($footerDashes + $padding2*2);
-          right: $footerBirdShift;
-          height: $footerBird;
-          width: $footerBird;
+            right: $footerDashes + $padding3;
+            height: $footerBirdHeight;
+            width: $footerBirdWidth;
             z-index: 2;
             background-size: cover;
         }

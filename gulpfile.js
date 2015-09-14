@@ -149,9 +149,9 @@ gulp.task('bundle:js', function (done) {
     require('del')(dirs.dist + '/js/app.min.js', done);
     gulp.src([dirs.src + '/js/**/*.js'])
         .pipe(plugins.sourcemaps.init())
-        .pipe(plugins.concat('app.min.js'))
-        .pipe(plugins.ngAnnotate())
-        .pipe(plugins.uglify())
+            .pipe(plugins.concat('app.min.js'))
+            .pipe(plugins.ngAnnotate())
+        //.pipe(plugins.uglify())
         .pipe(plugins.sourcemaps.write())
         .pipe(gulp.dest(dirs.dist + '/js'))
         .pipe(plugins.connect.reload());
@@ -166,6 +166,31 @@ gulp.task('lint:js', function () {
         .pipe(plugins.jshint())
         .pipe(plugins.jshint.reporter('jshint-stylish'))
         .pipe(plugins.jshint.reporter('fail'));
+});
+
+gulp.task('watch', function () {
+    gulp.watch(dirs.src + '/js/*.js', ['bundle']);
+    gulp.watch(dirs.src + '/css/*.scss', ['bundle']);
+    gulp.watch(dirs.src + '/views/**/*.html', ['copy:html']);
+});
+
+gulp.task('connect', function () {
+    plugins.connect.server({
+        root: 'dist',
+        livereload: true
+    });
+});
+
+gulp.task('sftp', function () {
+    return gulp.src(dirs.dist + '/**/*')
+        .pipe(plugins.sftp({
+            host: 'ftp.palekhfest.tk',
+            port: '21',
+            user: 'u345440680.palekhfest',
+            pass: 'palekhfest',
+            remotePath: '/home/u345440680/public_html/'
+        }));
+
 });
 
 gulp.task('watch', function () {

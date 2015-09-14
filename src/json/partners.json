@@ -5,8 +5,18 @@
         "image": "partners/palechru.png"
     },
     {
-        "name": "Компания «Возрождение» и лично Александр Гусаковский",
+        "name": "Кинешемский драматический театр имени А.Н. Островского",
         "link": "http://palech.ru",
-        "image": "partners/palechru.png"
+        "image": "partners/ostrovsky.jpg"
+    },
+    {
+        "name": "Гостевой дом «Ковчег»",
+        "link": "http://www.palekh-tour.ru/",
+        "image": "partners/kovcheg.png"
+    },
+    {
+        "name": "Гостевой дом «Пестовская слобода»",
+        "link": "http://palech.ru",
+        "image": "partners/sloboda.png"
     }
 ]

@@ -1,5 +1,6 @@
-<div class="program center-text">
-    <!--<div class="days" ng-repeat="day in program.days">
+<h1 ng-show="true">Ожидаем вас на этой странице после 5-го августа!</h1>
+<div class="program" ng-show="false">
+    <div class="days" ng-repeat="day in days">
         <h2 ng-bind="day.date"></h2>
 
         <h1 ng-bind="day.name"></h1>
@@ -10,7 +11,7 @@
                 <span ng-bind="event.name"></span>
             </p>
         </div>
-    </div>-->
+    </div>
     <a class="button" target="_self" href="/pdf/program.pdf" download="Программа фестиваля Яблочный Спас.pdf">скачать
         программу <span
                 class="icon-download"></span></a>

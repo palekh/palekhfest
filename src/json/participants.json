@@ -4,81 +4,75 @@
         "persons": [
             {
                 "name": "Мария Дек (Польша)",
-                "image": "",
+                "image": "artists/dek.jpg",
                 "link": "http://www.behance.net/mariadek",
-                "secret": true
-            },
-            {
-                "name": "Лори Стенсфилд (Англия)",
-                "image": "",
-                "link": "http://www.lauriestansfield.co.uk/",
-                "secret": true
+                "secret": false
             },
             {
                 "name": "Евдокия Гасумян",
-                "image": "",
+                "image": "artists/gasumyan.JPG",
                 "link": "https://www.behance.net/du-sa",
-                "secret": true
+                "secret": false
             },
             {
                 "name": "Татьяна Уклейко",
-                "image": "",
+                "image": "artists/ukleyko.jpg",
                 "link": "https://www.behance.net/tatyanaukleiko",
-                "secret": true
+                "secret": false
             },
             {
                 "name": "Наталья Гаврилова",
-                "image": "",
+                "image": "artists/gavrilova.jpg",
                 "link": "https://www.behance.net/greenklukva",
-                "secret": true
+                "secret": false
             },
             {
                 "name": "Анастасия Худякова",
-                "image": "",
+                "image": "artists/hudyakova.jpg",
                 "link": "https://www.behance.net/makovayafeya",
-                "secret": true
+                "secret": false
             },
             {
                 "name": "Наталья Лобанова",
-                "image": "",
+                "image": "artists/lobanova.jpg",
                 "link": "https://www.behance.net/greenklukva",
-                "secret": true
+                "secret": false
             },
             {
-                "name": "Ярик Пикулев",
-                "image": "pikulev.jpg",
-                "link": "https://vk.com/e_d_a_k_o_e",
-                "secret": true
+                "name": "Лори Стенсфилд (Англия)",
+                "image": "artists/lori.jpg",
+                "link": "http://www.lauriestansfield.co.uk/",
+                "secret": false
             },
             {
                 "name": "Иван Колыгин",
                 "image": "artists/kolygin.jpg",
                 "link": "https://www.behance.net/Ivan_Kolygin",
-                "secret": true
+                "secret": false
             },
             {
                 "name": "Марина Галкина",
-                "image": "",
+                "image": "artists/galkina.jpg",
                 "link": "https://vk.com/id164032077",
-                "secret": true
+                "secret": false
+            },
+            {
+                "name": "Ярик Пикулев",
+                "image": "artists/pikulev.jpg",
+                "link": "https://vk.com/e_d_a_k_o_e",
+                "secret": false
             },
             {
                 "name": "Алёна Смирнова",
-                "image": "",
+                "image": "artists/smirnova.JPG",
                 "link": "https://vk.com/alyonsmirnova",
-                "secret": true
-            },
-            {
-                "name": "Даниил Дэ=Дъ",
-                "image": "",
-                "link": "https://vk.com/id18052066",
-                "secret": true
+                "secret": false
             },
             {
                 "name": "Арт-группа «ХЛЕБ-2015»",
                 "image": "artists/hleb.jpg",
                 "link": "https://vk.com/hleb_fest_ivanovo",
-                "secret": true
+                "secret": false
             }
         ]
     },
@@ -95,25 +89,25 @@
                 "name": "Даша Шульц",
                 "image": "musicians/dasha-shultz.jpg",
                 "link": "https://www.facebook.com/dashashultssongs",
-                "secret": true
+                "secret": false
             },
             {
                 "name": "Илья Разин",
                 "image": "musicians/ilya-razin.jpg",
                 "link": "http://chozamusic.ru/",
-                "secret": true
+                "secret": false
             },
             {
                 "name": "Мегаполис",
                 "image": "musicians/megapolis.jpg",
                 "link": "https://www.facebook.com/Megapolisband",
-                "secret": true
+                "secret": false
             },
             {
                 "name": "Real Good Hands",
                 "image": "musicians/real-good-hands.jpg",
                 "link": "https://vk.com/realgoodhandsband",
-                "secret": true
+                "secret": false
             },
             {
                 "name": "Neon Tiger",
@@ -125,7 +119,7 @@
                 "name": "Норма Джин",
                 "image": "musicians/norma-jin.jpg",
                 "link": "https://vk.com/club3877914",
-                "secret": true
+                "secret": false
             },
             {
                 "name": "DR",
@@ -143,7 +137,7 @@
                 "name": "Корабль Снов",
                 "image": "musicians/korabl-snov.jpg",
                 "link": "https://vk.com/club8289095",
-                "secret": true
+                "secret": false
             }
         ]
     },
@@ -157,16 +151,10 @@
                 "secret": false
             },
             {
-                "name": "Александр Куркин",
-                "image": "lections/kurkin.jpg",
-                "link": "http://artpalekh.ru/",
-                "secret": true
-            },
-            {
                 "name": "Дмитрий Фисан",
                 "image": "lections/fisan.jpg",
                 "link": "https://www.behance.net/dmitryfisan",
-                "secret": true
+                "secret": false
             },
             {
                 "name": "Мария Дюповкина",
@@ -178,49 +166,37 @@
                 "name": "Николай Солилов",
                 "image": "lections/solilov.jpg",
                 "link": "https://vimeo.com/limivanovo",
-                "secret": true
+                "secret": false
             },
             {
                 "name": "Александр Леонов",
                 "image": "lections/leonov.jpg",
                 "link": "https://vk.com/enschool_ru",
-                "secret": true
+                "secret": false
             },
             {
                 "name": "Марина Пугина",
                 "image": "lections/pugina.jpg",
                 "link": "https://vk.com/permstategallery",
-                "secret": true
+                "secret": false
             },
             {
                 "name": "Михаил Шатров",
                 "image": "lections/shatrov.jpg",
                 "link": "https://vk.com/nimloft",
-                "secret": true
+                "secret": false
             },
             {
                 "name": "Артем Филатов",
                 "image": "lections/filatov.jpg",
                 "link": "http://anvilrosenkreuz.ru/en",
-                "secret": true
-            },
-            {
-                "name": "Галина Голубева",
-                "image": "lections/golubeva.jpg",
-                "link": "http://www.pilot-film.com/index.php?p=show_person&pid=8680",
-                "secret": true
-            },
-            {
-                "name": "Фонд «Артель.Палех»",
-                "image": "lections/fond-artel.jpg",
-                "link": "http://fond.palekh.pro/",
-                "secret": true
+                "secret": false
             },
             {
                 "name": "Александр Руденко",
                 "image": "lections/rudenko.jpg",
                 "link": "https://vk.com/alexmer",
-                "secret": true
+                "secret": false
             }
         ]
     }

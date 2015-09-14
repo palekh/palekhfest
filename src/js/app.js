@@ -9,15 +9,23 @@ app.config(function ($routeProvider) {
         templateUrl: "views/program/program.html",
         controller: "ProgramCtrl",
         controllerAs: "program"
-    }).when("/participants", {
+    }).when("/program/participants", {
         templateUrl: "views/program/participants.html",
         controller: "ParticipantsCtrl",
         controllerAs: "participants"
     }).when("/guide", {
-        templateUrl: "views/guide.html"
+        templateUrl: "views/guide/guide.html"
+    }).when("/guide/howtoget", {
+        templateUrl: "views/guide/howtoget.html"
     }).when("/contacts", {
         templateUrl: "views/contacts.html"
-    }).otherwise({
+    })
+        .when("/contest", {
+            redirectTo: "/contest/about"
+        })
+        .when("/contest/about", {
+            templateUrl: "views/contest/about.html"
+        }).otherwise({
         redirectTo: '/'
     });
 });
