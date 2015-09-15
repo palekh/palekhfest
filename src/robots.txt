@@ -1,5 +1,12 @@
 # www.robotstxt.org/
 
-# Allow crawling of all content
+User-agent: Yandex
+Disallow: /_guestnotes/
+Disallow: /img/
+Disallow: /scripts/
+Host: fest.artpalekh.ru
+
 User-agent: *
-Disallow:
+Disallow: /_guestnotes/
+Disallow: /img/
+Disallow: /scripts/
