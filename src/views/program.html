@@ -1,18 +1,21 @@
-<h1 ng-show="true">Ожидаем вас на этой странице после 5-го августа!</h1>
-<div class="program" ng-show="false">
-    <div class="days" ng-repeat="day in days">
-        <h2 ng-bind="day.date"></h2>
-
-        <h1 ng-bind="day.name"></h1>
-
-        <div ng-repeat="event in day.events">
-            <p>
-                <b ng-bind="event.time"></b>
-                <span ng-bind="event.name"></span>
-            </p>
-        </div>
-    </div>
+<div class="program center-text">
     <a class="button" target="_self" href="/pdf/program.pdf" download="Программа фестиваля Яблочный Спас.pdf">скачать
-        программу <span
-                class="icon-download"></span></a>
+        программу <span class="icon-download"></span></a>
+    <div class="days" ng-repeat="day in days">
+        <h1 ng-bind="day.date"></h1>
+		<div ng-repeat="action in day.actions">
+			<h3 ng-bind="action.location" class="inline"></h3>
+			<h4 ng-bind="action.address" class="inline"></h4>
+
+			<div ng-repeat="event in action.events">
+				<p>
+					<b ng-bind="event.time"></b>
+					<b ng-bind="event.name"></b>
+					<br/>
+					<span ng-bind="event.description"></span>
+				</p>
+			</div>
+			<br/>
+		</div>
+    </div>
 </div>

@@ -6,11 +6,11 @@ app.config(function ($routeProvider) {
         controller: 'MainCtrl',
         controllerAs: 'main'
     }).when("/program", {
-        templateUrl: "views/program/program.html",
+        templateUrl: "views/program.html",
         controller: "ProgramCtrl",
         controllerAs: "program"
     }).when("/participants", {
-        templateUrl: "views/program/participants.html",
+        templateUrl: "views/participants.html",
         controller: "ParticipantsCtrl",
         controllerAs: "participants"
     }).when("/guide", {

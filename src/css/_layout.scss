@@ -21,12 +21,13 @@ h3, h4 {
 }
 
 h1, h2, h3, h4, h5 {
-    font-family: 'Certa Sans Medium', 'Fira Sans', Arial, sans-serif;
-    letter-spacing: 0.33pt;
+  font-family: 'Certa Sans Medium', Arial, sans-serif;
+  letter-spacing: 0.33pt;
+  margin: 0.33em 0;
 }
 
 .wrapper {
-    font-family: 'Fira Sans', Arial, sans-serif;
+    font-family: 'Andika', Arial, sans-serif;
     display: flex;
     min-height: 100vh;
     min-width: $minWidth;
