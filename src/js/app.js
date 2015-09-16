@@ -1,6 +1,6 @@
 var app = angular.module('app', ['ngRoute']);
 
-app.config(function ($routeProvider) {
+app.config(function ($routeProvider, $locationProvider) {
     $routeProvider.when("/", {
         templateUrl: "views/main.html",
         controller: 'MainCtrl',
@@ -19,6 +19,11 @@ app.config(function ($routeProvider) {
         templateUrl: "views/contacts.html"
     }).otherwise({
         redirectTo: '/'
+    });
+
+    $locationProvider.html5Mode({
+        enabled: true,
+        requireBase: false
     });
 });
 

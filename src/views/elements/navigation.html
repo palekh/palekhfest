@@ -1,7 +1,7 @@
 <div ng-include="'views/elements/logo.html'"></div>
 <nav>
     <div class="just-apple-feast nav-element">
-        <b><a href="#/" ng-click="navigation.setPage(-1)">яблочный спас</a></b>
+        <b><a href="/" ng-click="navigation.setPage(-1)">яблочный спас</a></b>
     </div>
     <a class="menu" href="" ng-click="navigation.toggleNav()">{{currentPageName()}} <span class="icon-bars"></span></a>
 
@@ -9,7 +9,7 @@
         <div class="nav-element" ng-repeat="link in links">
             <a ng-class=" { current:navigation.isSet(link.number)}"
                ng-bind="link.name"
-               href="#{{link.link}}"
+               href="{{link.link}}"
                ng-click="navigation.setPage(link.number)"></a>
             <span> /</span>
         </div>
