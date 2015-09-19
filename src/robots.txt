@@ -1,12 +1,7 @@
 # www.robotstxt.org/
 
-User-agent: Yandex
-Disallow: /_guestnotes/
-Disallow: /img/
-Disallow: /scripts/
-Host: fest.artpalekh.ru
-
 User-agent: *
-Disallow: /_guestnotes/
+Disallow: /pdf/
 Disallow: /img/
-Disallow: /scripts/
+Disallow: /json/
+Disallow: /doc/
