@@ -36,3 +36,14 @@ app.controller('MainCtrl', function ($scope, $http) {
             console.log('error');
         });
 });
+
+app.directive('toggleClass', function() {
+    return {
+        restrict: 'A',
+        link: function(scope, element, attrs) {
+            element.bind('click', function() {
+                element.toggleClass(attrs.toggleClass);
+            });
+        }
+    };
+});

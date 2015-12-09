@@ -31,6 +31,10 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-linkto:before {
+    content: "\e900";
+}
+
 .icon-download:before {
     content: "\f019";
 }

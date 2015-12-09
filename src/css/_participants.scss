@@ -7,39 +7,49 @@
   .persons {
     display: inline-block;
     width: 100%;
-    text-align: center;
+    .person-image:hover {
+      .person-info { display: inline; }
+      .yellow-bg {
+        position: absolute; top: 0; left: 0;
+        border-radius: 50%;
+        width: 100%; height: 100%;
+        background-color: $yellow;
+        opacity: 0.7;
+      }
+    }
+
     .person {
+      position: relative;
       width: 30%;
       height: 100%;
       vertical-align: top;
       display: inline-block;
       padding: 1.5%;
 
-      h1 {
-        font-size: 2.5vw;
-      }
+      h1 { font-size: 2vw; }
+      h2 { font-size: 1.3vw; opacity: 0.4; color: $black; }
 
       .person-image {
         position: relative;
-                background-color: $black;
         background-position: center top;
         background-size: cover;
         background-repeat: no-repeat;
         border-radius: 50%;
         width: 100%;
         padding-top: 100%;
-            }
+      }
 
-      &:nth-child(even) {
-        .person-image {
-          background-color: $yellow;
+      .person-info {
+        position: absolute;
+        width: 100%;
+        top: 50%;
+        transform: translateY(-35%);
+        display: none;
+        text-align: center;
+        .person-link {
+          font-size: 1.5em;
         }
-
-        h1 {
-          color: $yellow;
-        }
-
-            }
+      }
     }
   }
 }
@@ -49,10 +59,21 @@
     .persons {
       .person {
         width: 45%;
-        h1 {
-          font-size: 5vw;
+        h1 { font-size: 3.5vw; }
+        h2 { font-size: 2.5vw; }
+      }
+      .person-image:hover { .person-info { display: none; } .yellow-bg { display: none; }}
+      .person-image.active {
+        .person-info { display: inline !important; }
+        .yellow-bg {
+          display: block !important;
+          position: absolute; top: 0; left: 0;
+          border-radius: 50%;
+          width: 100%; height: 100%;
+          background-color: $yellow;
+          opacity: 0.7;
         }
       }
-        }
     }
+  }
 }
