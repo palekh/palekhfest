@@ -42,7 +42,7 @@ navigation {
 
 .content {
     flex: 1;
-    z-index: 2;
+    z-index: 1;
     padding-top: $navHeight;
     padding-bottom: $footerDashes;
     padding-left: $logoWidth + $padding3*2;
@@ -53,7 +53,7 @@ navigation {
 }
 
 footer {
-    z-index: 1;
+    z-index: 2;
     width: 100%;
 }
 

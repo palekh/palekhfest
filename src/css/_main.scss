@@ -16,14 +16,18 @@
     .partners {
         .partner {
             width: 45%;
-            margin-bottom: $padding1;
+            margin-bottom: $padding2;
+            vertical-align: top;
+            .partner-picture-wrap {
+                display: inline-block;
+                width: $partnerPic;
+                height: $partnerPic*0.8;
+                line-height: $partnerPic*0.8;
+            }
             .partner-picture {
                 display: inline-block;
-              background-position: center;
-                background-repeat: no-repeat;
-              background-size: 100%;
-                width: $partnerPic;
-                height: $partnerPic;
+                vertical-align: baseline;
+                width: 100%;
             }
         }
     }
@@ -43,8 +47,7 @@
         transform: translateY(-50%);
         height: 20vw;
         width: 50vw;
-        background: url("../img/main-bg.png") center center no-repeat;
-        background-size: 100%;
+        content: url("../img/main-bg.png");
     }
 
     .main-title {
@@ -71,10 +74,5 @@
         }
     }
 
-    .intro {
-        .main-bg {
-            background: url("../img/main-bg-min.png") center center no-repeat;
-            background-size: 100%;
-        }
-    }
+    .main-bg { content: url("../img/main-bg-min.png") !important; }
 }

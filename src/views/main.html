@@ -1,5 +1,5 @@
 <div class="intro">
-    <div class="main-bg"></div>
+    <img class="main-bg" alt="Три Девицы поют хором. Парень с метлой и женщина с ведром. Иллюстрация"/>
     <div class="main-title">
         <h1>ПАЛЕХ</h1>
 
@@ -61,8 +61,9 @@
         <div class="partners">
             <div class="partner inline" ng-repeat="partner in partners">
                 <a href="{{partner.link}}" target="_blank">
-                    <div class="partner-picture"
-                         ng-style="{'background-image':'url(../img/{{partner.image}})'}"></div>
+                    <div class="partner-picture-wrap">
+                        <img class="partner-picture" src="../img/{{partner.image}}" alt="Логотип партнёра фестиваля"/>
+                    </div>
                     <br>
                     <p ng-bind="partner.name"></p>
                 </a>

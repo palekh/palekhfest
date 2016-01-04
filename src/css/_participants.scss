@@ -7,8 +7,9 @@
   .persons {
     display: inline-block;
     width: 100%;
-    .person-image:hover {
-      .person-info { display: inline; }
+    .person-image:hover,
+    .person-image.active{
+      .person-info { opacity: 1; }
       .yellow-bg {
         position: absolute; top: 0; left: 0;
         border-radius: 50%;
@@ -44,8 +45,8 @@
         width: 100%;
         top: 50%;
         transform: translateY(-35%);
-        display: none;
         text-align: center;
+        opacity: 0;
         .person-link {
           font-size: 1.5em;
         }
@@ -60,19 +61,7 @@
       .person {
         width: 45%;
         h1 { font-size: 3.5vw; }
-        h2 { font-size: 2.5vw; }
-      }
-      .person-image:hover { .person-info { display: none; } .yellow-bg { display: none; }}
-      .person-image.active {
-        .person-info { display: inline !important; }
-        .yellow-bg {
-          display: block !important;
-          position: absolute; top: 0; left: 0;
-          border-radius: 50%;
-          width: 100%; height: 100%;
-          background-color: $yellow;
-          opacity: 0.7;
-        }
+        h2 { font-size: 2vw; }
       }
     }
   }
