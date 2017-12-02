@@ -1,0 +1,9 @@
+# www.robotstxt.org/
+
+User-agent: *
+Disallow: /pdf/
+Disallow: /img/
+Disallow: /json/
+Disallow: /doc/
+Sitemap:  http://fest.artpalekh.ru/sitemap.xml
+Host:  fest.artpalekh.ru

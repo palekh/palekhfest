@@ -1,0 +1,19 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+    Igor Golopolosov -- Developer -- @igolopolosov
+    Dima Rolmashov -- Developer -- @framebassman
+    Jenya Lakeev -- Producer
+    Maria Larionova -- Designer
+
+# THANKS
+
+    Alexander Kurkin
+
+
+# TECHNOLOGY COLOPHON
+
+    CSS3, HTML5
+    Apache Server Configs, jQuery, AngularJS, Fontawesome, Modernizr, Normalize.css
