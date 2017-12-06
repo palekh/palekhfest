@@ -7,9 +7,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavigationComponent implements OnInit {
 
+  links = [];
+
   constructor() { }
 
   ngOnInit() {
+    this.links = [
+      {
+        name: "программа",
+        link: "/program"
+      },
+      {
+        name: "участники",
+        link: "/participants",
+      },
+      {
+        name: "путеводитель",
+        link: "/guide"
+      },
+      {
+        name: "контакты",
+        link: "/contacts"
+      }
+    ];
   }
 
 }

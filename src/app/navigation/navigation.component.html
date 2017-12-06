@@ -1,3 +1,4 @@
-<p>
-  navigation works!
-</p>
+<div *ngFor="let link of links">
+  <a href="{{link.link}}">{{link.name}}</a>
+  <span> /</span>
+</div>
