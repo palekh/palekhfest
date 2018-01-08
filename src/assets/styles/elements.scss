@@ -1,0 +1,41 @@
+.button {
+    display: inline-block;
+    color: $black;
+    border: $border / 2 solid $black;
+    padding: $padding1;
+    text-align: center;
+    margin-right: $paddingMin;
+    margin-bottom: $padding1;
+
+    .icon-instagram {
+        padding-left: 4px;
+    }
+
+    &:hover {
+        border-color: $yellow;
+    }
+
+    &:active {
+        border-color: $white;
+    }
+}
+
+.light-text {
+    font-weight: lighter;
+}
+
+.white-text {
+    color: $white;
+}
+
+.black-text {
+    color: $black;
+}
+
+.yellow-text {
+    color: $yellow;
+}
+
+.center-text {
+    text-align: center;
+}

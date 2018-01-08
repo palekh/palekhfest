@@ -1,11 +1,11 @@
-@import "../../styles";
+@import "../../assets/styles/variables";
 
 :host {
     background: $yellow;
     position: relative;
     display: inline-block;
     width: 100%;
-    margin: $padding1 0;
+    padding: $padding1 0;
 
     .copyright {
         float: left;
