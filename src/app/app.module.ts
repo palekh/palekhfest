@@ -18,7 +18,7 @@ const routes = [
   {path: 'participants', component: ParticipantsComponent},
   {path: 'guide', component: GuideComponent},
   {path: 'contacts', component: ContactsComponent},
-]
+];
 
 @NgModule({
   declarations: [

@@ -1,58 +1,55 @@
-@import "../app.component";
+@import "../../styles";
 
-app-footer {
+:host {
     background: $yellow;
-    apple-footer {
-        position: relative;
-        display: inline-block;
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    margin: $padding1 0;
+
+    .copyright {
+        float: left;
+        margin-left: $padding2;
+    }
+
+    .author {
+        float: right;
+        margin-right: $padding2;
+        a {
+            color: $white;
+        }
+    }
+
+    .animal {
+        position: absolute;
+        top: - ($footerDashes + $padding2*2);
+        right: $footerDashes + $padding3;
+        height: $footerBirdHeight;
+        width: $footerBirdWidth;
+        z-index: 2;
+    }
+
+    .dashes {
+        z-index: 1;
+        position: absolute;
+        right: 0;
+        top: -$footerDashes;
+        height: $footerDashes;
         width: 100%;
-        margin: $padding1 0;
-
-        .copyright {
-            float: left;
-            margin-left: $padding2;
-        }
-
-        .author {
-            float: right;
-            margin-right: $padding2;
-            a {
-                color: $white;
-            }
-        }
-
-        .animal {
-            position: absolute;
-            top: - ($footerDashes + $padding2*2);
-            right: $footerDashes + $padding3;
-            height: $footerBirdHeight;
-            width: $footerBirdWidth;
-            z-index: 2;
-        }
-
-        .dashes {
-            z-index: 1;
-            position: absolute;
-            right: 0;
-            top: -$footerDashes;
-            height: $footerDashes;
-            width: 100%;
-            background: url("../../assets/img/footer-dashes.png");
-        }
+        background: url("../../assets/img/footer-dashes.png");
     }
 }
 
 @media only screen and (max-width: $maxWidth) {
-    footer {
+    :host {
         text-align: center;
-        apple-footer {
-            .copyright, .author {
-                float: none;
-                margin: 0 $padding1;
-            }
-            .dashes, .animal {
-                display: none;
-            }
+        
+        .copyright, .author {
+            float: none;
+            margin: 0 $padding1;
+        }
+        .dashes, .animal {
+            display: none;
         }
     }
 }
