@@ -5,10 +5,10 @@ npm install
 
 ## How to run:
 ```bash
-ng serve
+npm start
 ```
 
 ## How to prepare files for deploy:
 ```bash
-ng build
+npm build
 ```
