@@ -1,4 +1,4 @@
-@import "../../assets/styles/variables";
+@import "~assets/styles/variables";
 
 :host {
     background: $yellow;
@@ -36,7 +36,7 @@
         top: -$footerDashes;
         height: $footerDashes;
         width: 100%;
-        background: url("../../assets/img/footer-dashes.png");
+        background: url("~assets/img/footer-dashes.png");
     }
 }
 
