@@ -3,14 +3,14 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { HomeComponent } from './content/home/home.component';
-import { ProgramComponent } from './content/program/program.component';
-import { ParticipantsComponent } from './content/participants/participants.component';
-import { GuideComponent } from './content/guide/guide.component';
-import { ContactsComponent } from './content/contacts/contacts.component';
-import { NavigationComponent } from './elements/navigation/navigation.component';
-import { FooterComponent } from './elements/footer/footer.component';
-import { LogoComponent } from './elements/logo/logo.component';
+import { ProgramComponent } from './program/program.component';
+import { ParticipantsComponent } from './participants/participants.component';
+import { GuideComponent } from './guide/guide.component';
+import { ContactsComponent } from './contacts/contacts.component';
+import { NavigationComponent } from './navigation/navigation.component';
+import { HomeComponent } from './home/home.component';
+import { FooterComponent } from './footer/footer.component';
+import { LogoComponent } from './logo/logo.component';
 
 const routes = [
   {path: '', component: HomeComponent},
