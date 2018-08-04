@@ -4,7 +4,7 @@
   "homepage": "http://fest.artpalekh.ru/",
   "license": "MIT",
   "scripts": {
-    "build": "gulp build",
+    "start": "gulp build",
     "test": "gulp archive && mocha --reporter spec --timeout 5000"
   },
   "engines": {
@@ -47,7 +47,7 @@
     "gulp-sourcemaps": "1.5.2",
     "gulp-uglify": "1.2.0",
     "gulp-uncss": "1.0.2",
-    "jquery": "2.1.4",
+    "jquery": "3.0.0",
     "jshint-stylish": "2.0.1",
     "mocha": "2.2.4",
     "modernizr": "3.0.0-alpha.4",
