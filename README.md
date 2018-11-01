@@ -26,4 +26,4 @@ And you will find out detailed information about event, participants and schedul
 
 ---
 
-⏰ Igor Golopolosob & Dmitry Romashov. August 2015 +
+Igor Golopolosov & Dmitry Romashov. August 2015 +
