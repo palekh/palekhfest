@@ -1,4 +1,4 @@
-# Apple Feast
+# 🍏 Apple Feast
 
 Welcome to the techy heart of **International summer festival in Palekh!**
 
