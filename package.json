@@ -50,7 +50,7 @@
     "jquery": "3.4.0",
     "jshint-stylish": "2.0.1",
     "mocha": "2.2.5",
-    "modernizr": "3.0.0",
+    "modernizr": "3.7.1",
     "normalize.css": "3.0.3",
     "run-sequence": "1.1.5"
   }
