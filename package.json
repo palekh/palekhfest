@@ -49,7 +49,7 @@
     "gulp-uncss": "1.0.6",
     "jquery": "3.4.0",
     "jshint-stylish": "2.0.1",
-    "mocha": "2.2.5",
+    "mocha": "6.1.4",
     "modernizr": "3.7.1",
     "normalize.css": "3.0.3",
     "run-sequence": "1.1.5"

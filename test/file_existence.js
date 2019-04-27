@@ -24,18 +24,7 @@ var expectedFilesInDistDir = [
 
     'css/', // for directories, a `/` character
             // should be included at the end
-        'css/main.css',
-        'css/normalize.css',
-
-    'doc/',
-        'doc/TOC.md',
-        'doc/css.md',
-        'doc/extend.md',
-        'doc/faq.md',
-        'doc/html.md',
-        'doc/js.md',
-        'doc/misc.md',
-        'doc/usage.md',
+        'css/bundle.min.css',
 
     'favicon.ico',
     'humans.txt',
@@ -55,8 +44,10 @@ var expectedFilesInDistDir = [
     'LICENSE.txt',
     'robots.txt',
     'tile-wide.png',
-    'tile.png'
+    'tile.png',
 
+    'views/',
+        'views/program.html',
 ];
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
