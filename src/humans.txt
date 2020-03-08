@@ -6,6 +6,7 @@
     Igor Golopolosov -- Developer -- @igolopolosov
     Jenya Lakeev -- Producer
     Maria Larionova -- Designer
+    Dmitry Romashov -- Developer
 
 # THANKS
 
@@ -15,4 +16,4 @@
 # TECHNOLOGY COLOPHON
 
     CSS3, HTML5
-    Apache Server Configs, jQuery, AngularJS, Fontawesome, Modernizr, Normalize.css
+    Apache Server Configs, AngularJS, Fontawesome, Modernizr, Normalize.css

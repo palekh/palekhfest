@@ -52,21 +52,6 @@ function runTests() {
 
     describe('Test if the files from the "' + dir + '" directory have the expected content', function () {
 
-        it('".htaccess" should have the "ErrorDocument..." line uncommented', function (done) {
-            var string = '\n\nErrorDocument 404 /404.html\n\n';
-            checkString(path.resolve(dir, '.htaccess'), string, done);
-        });
-
-        it('"index.html" should contain the correct jQuery version in the CDN URL', function (done) {
-            var string = 'ajax.googleapis.com/ajax/libs/jquery/' + pkg.devDependencies.jquery + '/jquery.min.js';
-            checkString(path.resolve(dir, 'index.html'), string, done);
-        });
-
-        it('"index.html" should contain the correct jQuery version in the local URL', function (done) {
-            var string = 'js/vendor/jquery-' + pkg.devDependencies.jquery + '.min.js';
-            checkString(path.resolve(dir, 'index.html'), string, done);
-        });
-
         it('"main.css" should contain a custom banner', function (done) {
             var string = '/*! HTML5 Boilerplate v' + pkg.version +
                          ' | ' + pkg.license.type + ' License' +

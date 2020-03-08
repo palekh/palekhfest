@@ -80,10 +80,6 @@ app.directive("navigation", function ($location) {
                 if ($scope.links[$scope.page].tab == null) return $scope.links[$scope.page].name + " ";
                 else return $scope.links[$scope.page].tabs[$scope.links[$scope.page].tab].name + " ";
             };
-            $(window).resize(function () {
-                $scope.$apply(function () {
-                });
-            });
         },
         controllerAs: "navigation"
     };

@@ -72,14 +72,14 @@ gulp.task('copy', [
 ]);
 
 gulp.task('copy:vendor', function () {
-    gulp.src(['node_modules/jquery/dist/jquery.min.js',
+    gulp.src([
         'node_modules/angular/angular.min.js',
         'node_modules/angular-route/angular-route.min.js'
     ])
         .pipe(plugins.concat('vendor.min.js'))
         .pipe(gulp.dest(dirs.dist + '/js'));
 
-    gulp.src(['node_modules/jquery/dist/jquery.min.map',
+    gulp.src([
         'node_modules/angular/angular.min.js.map',
         'node_modules/angular-route/angular-route.min.js.map'
     ])
@@ -182,18 +182,6 @@ gulp.task('connect', function () {
     });
 });
 
-gulp.task('sftp', function () {
-    return gulp.src(dirs.dist + '/**/*')
-        .pipe(plugins.sftp({
-            host: 'ftp.palekhfest.tk',
-            port: '21',
-            user: 'u345440680.palekhfest',
-            pass: 'palekhfest',
-            remotePath: '/home/u345440680/public_html/'
-        }));
-
-});
-
 gulp.task('watch', function () {
     gulp.watch(dirs.src + '/js/*.js', ['bundle']);
     gulp.watch(dirs.src + '/css/*.scss', ['bundle']);
@@ -205,18 +193,6 @@ gulp.task('connect', function () {
         root: 'dist',
         livereload: true
     });
-});
-
-gulp.task('sftp', function () {
-    return gulp.src(dirs.dist + '/**/*')
-        .pipe(plugins.sftp({
-            host: 'ftp.palekhfest.tk',
-            port: '21',
-            user: 'u345440680.palekhfest',
-            pass: 'palekhfest',
-            remotePath: '/home/u345440680/public_html/'
-        }));
-
 });
 
 // ---------------------------------------------------------------------
@@ -239,12 +215,3 @@ gulp.task('start-server', function (done) {
         'watch',
         done);
 });
-
-gulp.task('deploy', function (done) {
-    runSequence(
-        'clean',
-        ['copy', 'bundle'],
-        'sftp',
-        done);
-});
-
