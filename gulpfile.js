@@ -19,8 +19,9 @@ var dirs = pkg['h5bp-configs'].directories;
 // | Helper tasks                                                      |
 // ---------------------------------------------------------------------
 
-gulp.task('archive:create_archive_dir', function () {
+gulp.task('archive:create_archive_dir', function (done) {
     fs.mkdirSync(path.resolve(dirs.archive), '0755');
+    done();
 });
 
 gulp.task('archive:zip', function (done) {
@@ -222,15 +223,16 @@ gulp.task('sftp', function () {
 // | Main tasks                                                        |
 // ---------------------------------------------------------------------
 
-gulp.task('archive', function (done) {
+gulp.task('build', function (done) {
     runSequence(
-        'build',
+        'clean',
+        ['copy', 'bundle'],
         'archive:create_archive_dir',
         'archive:zip',
         done);
 });
 
-gulp.task('build', function (done) {
+gulp.task('start-server', function (done) {
     runSequence(
         ['connect', 'clean'],
         ['copy', 'bundle'],

@@ -4,8 +4,8 @@
   "homepage": "http://fest.artpalekh.ru/",
   "license": "MIT",
   "scripts": {
-    "start": "gulp build",
-    "build": "gulp archive",
+    "start": "gulp start-server",
+    "build": "gulp build",
     "test": "mocha --reporter spec --timeout 5000"
   },
   "engines": {
