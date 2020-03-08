@@ -1,4 +1,4 @@
-name: Test & Build
+name: Build & Test
 
 on:
   push:
@@ -6,31 +6,12 @@ on:
     - master
 
 jobs:
-  unit-tests:
-    runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [10.16.x]
-
-    steps:
-    - uses: actions/checkout@v1
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
-    - name: npm install and test
-      run: |
-        npm install
-        npm test
-
   build:
-    needs: unit-tests
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        node-version: [10.16.x]
+        node-version: [10.x]
 
     steps:
     - uses: actions/checkout@v1
@@ -38,17 +19,18 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - name: npm install and build
+    - name: npm install, test and build
       run: |
         npm install
         npm run build
+        npm test
 
     - name: Slack Notification
       uses: homoluctus/slatify@master
       if: always()
       with:
           type: ${{ job.status }}
-          job_name: 'Test & Build'
+          job_name: 'Build & Test'
           channel: '#release-notifications'
           url: ${{ secrets.SLACK_WEBHOOK }}
           icon_emoji: green_apple
