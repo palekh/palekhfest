@@ -1,26 +1,24 @@
 <script type="text/javascript">
 
-    ymaps.ready(init);
-    var myMap;
-
-    function init() {
-        myMap = new ymaps.Map("map", {
+    ymaps.ready(function init() {
+        console.log(123);
+        var myMap = new ymaps.Map("map", {
             center: [56.80259142, 41.85475548],
             zoom: 7
         });
 
-        palekh = new ymaps.Placemark([56.80259142, 41.85475548], {
+        var palekh = new ymaps.Placemark([56.80259142, 41.85475548], {
             content: 'Палех',
             balloonContent: 'Палех'
         });
 
 
         myMap.controls.add(
-                new ymaps.control.ZoomControl()
+            new ymaps.control.ZoomControl()
         );
 
         myMap.geoObjects.add(palekh);
-    }
+    });
 
 </script>
 
