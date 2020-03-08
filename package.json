@@ -1,11 +1,12 @@
 {
   "name": "palekhfest",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "homepage": "http://fest.artpalekh.ru/",
   "license": "MIT",
   "scripts": {
-    "build": "gulp build",
-    "test": "gulp archive && mocha --reporter spec --timeout 5000"
+    "start": "gulp build",
+    "build": "gulp archive",
+    "test": "mocha --reporter spec --timeout 5000"
   },
   "engines": {
     "node": ">=0.10.0"
