@@ -29,12 +29,15 @@ app.config(function ($routeProvider, $locationProvider) {
 
 
 app.controller('MainCtrl', function ($scope, $http) {
-    $http.get('json/partners.json').success(function (data, status, headers, config) {
-        $scope.partners = data;
-    }).
-        error(function (data, status, headers, config) {
-            console.log('error');
-        });
+    $http.get('json/partners.json')
+        .then(
+            function (response) {
+                $scope.partners = response.data;
+            },
+            function (response) {
+                console.error('error', response);
+            }
+        );
 });
 
 app.directive('toggleClass', function() {
