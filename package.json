@@ -1,6 +1,6 @@
 {
   "name": "palekhfest",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "homepage": "http://fest.artpalekh.ru/",
   "license": "MIT",
   "scripts": {
@@ -9,7 +9,7 @@
     "test": "mocha --reporter spec --timeout 5000"
   },
   "engines": {
-    "node": ">=0.10.0"
+    "node": ">=10.16.0"
   },
   "h5bp-configs": {
     "directories": {

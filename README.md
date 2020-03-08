@@ -2,6 +2,8 @@
 
 Welcome to the techy heart of **International summer festival in Palekh!**
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/8467d420-166a-4a82-aa5b-5a9b8a064996/deploy-status)](https://app.netlify.com/sites/stupefied-khorana-ce985a/deploys)
+
 ## What's it about?
 
 The festival desigined for international artists 🎨 and musicians 🎸.
