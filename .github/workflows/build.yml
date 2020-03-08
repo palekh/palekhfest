@@ -11,7 +11,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [10.x, 12.x]
+        node-version: [12.x]
 
     steps:
     - uses: actions/checkout@v1
@@ -41,3 +41,14 @@ jobs:
       run: |
         npm install
         npm run build
+
+    - name: Slack Notification
+      uses: homoluctus/slatify@master
+      if: always()
+      with:
+          type: ${{ job.status }}
+          job_name: 'Test & Build'
+          channel: '#release-notifications'
+          url: ${{ secrets.SLACK_WEBHOOK }}
+          icon_emoji: green_apple
+          username: palekhfest GitHub workflows
