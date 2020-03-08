@@ -37,7 +37,6 @@ var expectedFilesInDistDir = [
     'js/app.js',
         'js/plugins.js',
         'js/vendor/',
-            'js/vendor/modernizr-2.8.3.min.js',
 
     'LICENSE.txt',
     'robots.txt',

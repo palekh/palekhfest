@@ -1,7 +1,5 @@
-var fs = require('fs');
-var path = require('path');
-
 var gulp = require('gulp');
+var del = require('del');
 
 // Load all gulp plugins automatically
 // and attach them to the `plugins` object
@@ -10,7 +8,6 @@ var plugins = require('gulp-load-plugins')();
 // Temporary solution until gulp 4
 // https://github.com/gulpjs/gulp/issues/355
 var runSequence = require('run-sequence');
-var eventStream = require('event-stream');
 
 var pkg = require('./package.json');
 var dirs = pkg['h5bp-configs'].directories;
@@ -19,49 +16,8 @@ var dirs = pkg['h5bp-configs'].directories;
 // | Helper tasks                                                      |
 // ---------------------------------------------------------------------
 
-gulp.task('archive:create_archive_dir', function (done) {
-    fs.mkdirSync(path.resolve(dirs.archive), '0755');
-    done();
-});
-
-gulp.task('archive:zip', function (done) {
-
-    var archiveName = path.resolve(dirs.archive, pkg.name + '_v' + pkg.version + '.zip');
-    var archiver = require('archiver')('zip');
-    var files = require('glob').sync('**/*.*', {
-        'cwd': dirs.dist,
-        'dot': true // include hidden files
-    });
-    var output = fs.createWriteStream(archiveName);
-
-    archiver.on('error', function (error) {
-        done();
-        throw error;
-    });
-
-    output.on('close', done);
-
-    files.forEach(function (file) {
-
-        var filePath = path.resolve(dirs.dist, file);
-
-        // `archiver.bulk` does not maintain the file
-        // permissions, so we need to add files individually
-        archiver.append(fs.createReadStream(filePath), {
-            'name': file,
-            'mode': fs.statSync(filePath)
-        });
-
-    });
-
-    archiver.pipe(output);
-    archiver.finalize();
-
-});
-
 gulp.task('clean', function (done) {
-    require('del')([
-        dirs.archive,
+    del([
         dirs.dist
     ], done);
 });
@@ -85,7 +41,8 @@ gulp.task('copy:vendor', function () {
     ])
         .pipe(gulp.dest(dirs.dist + '/js'));
 
-    gulp.src(['node_modules/normalize.css/normalize.css'
+    gulp.src([
+        'node_modules/normalize.css/normalize.css'
     ])
         .pipe(plugins.concatCss('vendor.css'))
         .pipe(plugins.uncss({
@@ -120,7 +77,7 @@ gulp.task('copy:misc', function () {
 });
 
 gulp.task('copy:html', function (done) {
-    require('del')(dirs.dist + '/views/*', done);
+    del(dirs.dist + '/views/*', done);
     gulp.src([dirs.src + '/views/**/*.html'])
         .pipe(gulp.dest(dirs.dist + '/views'))
         .pipe(plugins.connect.reload());
@@ -132,7 +89,7 @@ gulp.task('bundle', [
 ]);
 
 gulp.task('bundle:css', function (done) {
-    require('del')(dirs.dist + '/css/bundle.min.css', done);
+    del(dirs.dist + '/css/bundle.min.css', done);
 
     gulp.src([dirs.src + '/css/base.scss'])
         .pipe(plugins.sass({outputStyle: 'compressed'}))
@@ -147,12 +104,11 @@ gulp.task('bundle:css', function (done) {
 });
 
 gulp.task('bundle:js', function (done) {
-    require('del')(dirs.dist + '/js/app.min.js', done);
+    del(dirs.dist + '/js/app.min.js', done);
     gulp.src([dirs.src + '/js/**/*.js'])
         .pipe(plugins.sourcemaps.init())
             .pipe(plugins.concat('app.min.js'))
             .pipe(plugins.ngAnnotate())
-        //.pipe(plugins.uglify())
         .pipe(plugins.sourcemaps.write())
         .pipe(gulp.dest(dirs.dist + '/js'))
         .pipe(plugins.connect.reload());
@@ -203,9 +159,8 @@ gulp.task('build', function (done) {
     runSequence(
         'clean',
         ['copy', 'bundle'],
-        'archive:create_archive_dir',
-        'archive:zip',
-        done);
+        done
+    );
 });
 
 gulp.task('start-server', function (done) {
@@ -213,5 +168,6 @@ gulp.task('start-server', function (done) {
         ['connect', 'clean'],
         ['copy', 'bundle'],
         'watch',
-        done);
+        done
+    );
 });

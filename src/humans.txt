@@ -16,4 +16,4 @@
 # TECHNOLOGY COLOPHON
 
     CSS3, HTML5
-    Apache Server Configs, AngularJS, Fontawesome, Modernizr, Normalize.css
+    AngularJS, Fontawesome, Normalize.css
