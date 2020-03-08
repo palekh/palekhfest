@@ -13,7 +13,6 @@
   },
   "h5bp-configs": {
     "directories": {
-      "archive": "archive",
       "dist": "dist",
       "src": "src",
       "test": "test"

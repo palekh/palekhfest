@@ -4,7 +4,7 @@ var assert = require('assert');
 var fs = require('fs');
 var path = require('path');
 
-var pkg = require('./../package.json');
+var pkg = require('../package.json');
 var dirs = pkg['h5bp-configs'].directories;
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -52,11 +52,14 @@ function runTests() {
 
     describe('Test if the files from the "' + dir + '" directory have the expected content', function () {
 
-        it('"main.css" should contain a custom banner', function (done) {
-            var string = '/*! HTML5 Boilerplate v' + pkg.version +
-                         ' | ' + pkg.license.type + ' License' +
-                         ' | ' + pkg.homepage + ' */\n\n/*\n';
-            checkString(path.resolve(dir, 'css/main.css'), string, done);
+        it('"bundle.min.css" should contain a custom banner', function (done) {
+            var string = '/*! HTML5 Boilerplate v5.2.0 | MIT License | https://html5boilerplate.com/ */';
+            checkString(path.resolve(dir, 'css/bundle.min.css'), string, done);
+        });
+
+        it('"vendor.min.css" should contain a custom banner', function (done) {
+            var string = '/*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */';
+            checkString(path.resolve(dir, 'css/vendor.min.css'), string, done);
         });
 
     });
