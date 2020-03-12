@@ -14,7 +14,9 @@ app.config(function ($routeProvider, $locationProvider) {
         controller: "ParticipantsCtrl",
         controllerAs: "participants"
     }).when("/guide", {
-        templateUrl: "views/guide.html"
+        templateUrl: "views/guide.html",
+        controller: "GuideCtrl",
+        controllerAs: "guide"
     }).when("/contacts", {
         templateUrl: "views/contacts.html"
     }).otherwise({
