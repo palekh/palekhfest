@@ -17,7 +17,9 @@ Come on and join us! ✨
 
 Check the website by clicking this huge image ⤵️
 
-[![Apple Feast](http://fest.artpalekh.ru/tile-wide.png)](http://fest.artpalekh.ru/)
+[![Apple Feast](./src/tile-wide.png)](https://palekh-apple-feast.netlify.app/#!/)
+
+> Once upon a time it was available on http://fest.artpalekh.ru/
 
 And you will find out detailed information about event, participants and schedule.
 
