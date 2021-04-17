@@ -36,9 +36,6 @@ gulp.task('copy:vendor', function (done) {
         'node_modules/normalize.css/normalize.css'
     ])
         .pipe(plugins.concatCss('vendor.css'))
-        .pipe(plugins.uncss({
-            html: [dirs.src + 'index.html', dirs.src + '/views/**/*.html']
-        }))
         .pipe(plugins.minifyCss())
         .pipe(plugins.rename('vendor.min.css'))
         .pipe(gulp.dest(dirs.dist + '/css'));
@@ -103,7 +100,6 @@ gulp.task('bundle:js', function (done) {
     gulp.src([dirs.src + '/js/**/*.js'])
         .pipe(plugins.sourcemaps.init())
             .pipe(plugins.concat('app.min.js'))
-            .pipe(plugins.ngAnnotate())
         .pipe(plugins.sourcemaps.write())
         .pipe(gulp.dest(dirs.dist + '/js'))
         .pipe(plugins.connect.reload());
