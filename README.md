@@ -26,7 +26,7 @@ And you will find out detailed information about event, participants and schedul
 ## Powered by
 - 🔺 `AngularJS`
 - ✈️ `Gulp`
-- ❗️ `JSHint`
+- ❗️ `ESlint`
 
 ---
 

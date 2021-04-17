@@ -110,17 +110,6 @@ gulp.task('bundle', gulp.series(
     'bundle:js'
 ));
 
-gulp.task('lint:js', function () {
-    return gulp.src([
-        'gulpfile.js',
-        dirs.src + '/js/*.js',
-        dirs.test + '/*.js'
-    ]).pipe(plugins.jscs())
-        .pipe(plugins.jshint())
-        .pipe(plugins.jshint.reporter('jshint-stylish'))
-        .pipe(plugins.jshint.reporter('fail'));
-});
-
 gulp.task('watch', function () {
     gulp.watch(dirs.src + '/js/*.js', ['bundle']);
     gulp.watch(dirs.src + '/css/*.scss', ['bundle']);

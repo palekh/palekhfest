@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-redeclare
 var app = angular.module('app', ['ngRoute']);
 
 app.config(function ($routeProvider, $locationProvider) {
@@ -23,10 +24,6 @@ app.config(function ($routeProvider, $locationProvider) {
         redirectTo: '/'
     });
 
-    // $locationProvider.html5Mode({
-    //     enabled: true,
-    //     requireBase: false
-    // });
     $locationProvider.hashPrefix();
 });
 
