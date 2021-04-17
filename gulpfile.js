@@ -13,9 +13,8 @@ var dirs = pkg['h5bp-configs'].directories;
 // ---------------------------------------------------------------------
 
 gulp.task('clean', function (done) {
-    del([
-        dirs.dist
-    ], done);
+    del.sync([dirs.dist]);
+    done();
 });
 
 gulp.task('copy:vendor', function (done) {
@@ -39,7 +38,7 @@ gulp.task('copy:vendor', function (done) {
         .pipe(plugins.cleanCss())
         .pipe(plugins.rename('vendor.min.css'))
         .pipe(gulp.dest(dirs.dist + '/css'));
-    
+
     done();
 });
 
@@ -69,10 +68,11 @@ gulp.task('copy:misc', function (done) {
 });
 
 gulp.task('copy:html', function (done) {
-    del(dirs.dist + '/views/*', done);
+    del.sync([dirs.dist + '/views/*']);
     gulp.src([dirs.src + '/views/**/*.html'])
         .pipe(gulp.dest(dirs.dist + '/views'))
         .pipe(plugins.connect.reload());
+    done();
 });
 
 gulp.task('copy', gulp.series(
@@ -81,28 +81,26 @@ gulp.task('copy', gulp.series(
 ));
 
 gulp.task('bundle:css', function (done) {
-    del(dirs.dist + '/css/bundle.min.css', done);
-
+    del([dirs.dist + '/css/bundle.min.css']);
     gulp.src([dirs.src + '/css/base.scss'])
         .pipe(plugins.dartSass())
-        .pipe(plugins.autoprefixer({
-            browsers: ['last 2 versions', 'ie >= 8', '> 1%'],
-            cascade: false
-        }))
+        .pipe(plugins.autoprefixer({ cascade: false }))
         .pipe(plugins.cleanCss())
         .pipe(plugins.rename('bundle.min.css'))
         .pipe(gulp.dest(dirs.dist + '/css'))
         .pipe(plugins.connect.reload());
+    done();
 });
 
 gulp.task('bundle:js', function (done) {
-    del(dirs.dist + '/js/app.min.js', done);
+    del([dirs.dist + '/js/app.min.js']);
     gulp.src([dirs.src + '/js/**/*.js'])
         .pipe(plugins.sourcemaps.init())
-            .pipe(plugins.concat('app.min.js'))
+        .pipe(plugins.concat('app.min.js'))
         .pipe(plugins.sourcemaps.write())
         .pipe(gulp.dest(dirs.dist + '/js'))
         .pipe(plugins.connect.reload());
+    done();
 });
 
 gulp.task('bundle', gulp.series(
